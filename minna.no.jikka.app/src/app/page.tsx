@@ -5,6 +5,7 @@ import LinkButton from "./components/linkButton";
 import HoverPopup from "./components/hoverPopup";
 import OrgInfo from "./components/orgInfo";
 import ContactForm from "./components/contactForm";
+import Test from "./components/test";
 
 export default function Home() {
 
@@ -14,11 +15,16 @@ export default function Home() {
 
       <div className="Body bg-white">
 
-        <div className="Hero h-96 bg-gray-200">
+        <div className="Hero h-96 bg-gray-200">{/* hero section */}
           
         </div>
 
-        <div className="News bg-zinc-300 w-full py-8">
+        <div className="w-full">
+          <h1 className="my-12 text-center text-black text-3xl font-medium fleading-loose">みんなの実家 活動スケジュール</h1>
+          <Test />
+        </div>
+
+        <div className="News bg-zinc-300 w-full py-8">{/* news section */}
           <h1 className="mt-12 text-center text-black text-3xl font-medium fleading-loose">ニュース</h1>
           <div className="my-6 h-96 flex flex-col flex-wrap gap-5 justify-start mx-12 overflow-x-scroll snap-x">
             <div className="w-40 h-40 bg-neutral-50 snap-center" />
@@ -41,7 +47,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="About bg-white w-full">{/* about */}
+        <div className="About bg-white w-full">{/* about section */}
           <div className="About-Brief w-1/2 mx-auto flex flex-col items-center">
             <img src="./images/index_about_1.webp" className="w-full" alt="logo" />
             <p className="text-center text-black text-normal font-normal leading-normal"><b>『ともに笑う。ともに学ぶ。ともに生きる。』</b><br/><br/>【一般社団法人みんなの実家】は、地域を支え合う、人生を支え合う、一人一人を大切にし合う。<br/>そんな地域に密着した”第三の居場所”として運営されている総合型サードプレイス拠点です。<br/><br/>地域食堂やフリースクール、施設の貸し出しやイベントを展開しております。<br/>赤ちゃんから高齢者まで”だれでも気軽に”立ち寄ることができます。<br/><br/>さまざまな年齢層や背景を持つ方々と一期一会のつながりを楽しみながら、<br/>川べりの古民家でゆったりとした時間を共に過ごしましょう。</p>
@@ -82,7 +88,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="Support w-full flex justify-center bg-zinc-100">
+        <div className="Support w-full flex justify-center bg-zinc-100">{/* support section */}
           <div className="flex">
             <div className="w-1/4 ml-28 mt-8 flex flex-col items-center">
               <img src="https://via.placeholder.com/545x413" className="w-full h-72" />
@@ -95,7 +101,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="Relation w-full flex flex-col items-center justify-center bg-white">
+        <div className="Relation w-full flex flex-col items-center justify-center bg-white">{/* relation section */}
           <div className="Relation-Leader flex flex-col items-center mt-12">
             <h1 className="text-black text-2xl font-medium leading-loose">代表者プロフィール</h1>
             <div className="flex mt-6">
@@ -125,9 +131,9 @@ export default function Home() {
           </div>
         </div>
 
-        <ContactForm />
+        <ContactForm />{/* contact section */}
 
-        <div className="w-full mt-12 flex flex-col items-center justify-center bg-white">
+        <div className="w-full mt-12 flex flex-col items-center justify-center bg-white">{/* access section */}
           <h1 className="text-center text-black text-2xl font-normal leading-9">アクセス</h1>
           <h4 className="text-center text-black text-lg font-light leading-normal">みんなの実家への行き方</h4>
           <div className="flex w-3/4 justify-around mt-8">
