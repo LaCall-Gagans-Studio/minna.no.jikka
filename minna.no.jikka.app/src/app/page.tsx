@@ -18,7 +18,30 @@ export default function Home() {
           
         </div>
 
-        <div className="About bg-white">{/* about */}
+        <div className="News bg-zinc-300 w-full py-8">
+          <h1 className="mt-12 text-center text-black text-3xl font-medium fleading-loose">ニュース</h1>
+          <div className="my-6 h-96 flex flex-col flex-wrap gap-5 justify-start mx-12 overflow-x-scroll snap-x">
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+            <div className="w-40 h-40 bg-neutral-50 snap-center" />
+          </div>
+        </div>
+
+        <div className="About bg-white w-full">{/* about */}
           <div className="About-Brief w-1/2 mx-auto flex flex-col items-center">
             <img src="./images/index_about_1.webp" className="w-full" alt="logo" />
             <p className="text-center text-black text-normal font-normal leading-normal"><b>『ともに笑う。ともに学ぶ。ともに生きる。』</b><br/><br/>【一般社団法人みんなの実家】は、地域を支え合う、人生を支え合う、一人一人を大切にし合う。<br/>そんな地域に密着した”第三の居場所”として運営されている総合型サードプレイス拠点です。<br/><br/>地域食堂やフリースクール、施設の貸し出しやイベントを展開しております。<br/>赤ちゃんから高齢者まで”だれでも気軽に”立ち寄ることができます。<br/><br/>さまざまな年齢層や背景を持つ方々と一期一会のつながりを楽しみながら、<br/>川べりの古民家でゆったりとした時間を共に過ごしましょう。</p>
@@ -82,7 +105,7 @@ export default function Home() {
                 <h4 className="ml-1 text-black text-lg font-light leading-tight mt-2">生い立ち</h4>
                 <p className="ml-1 text-black text-sm font-light leading-none">じゅげむ じゅげむ ごこうのすりきれ かい</p>
                 <h4 className="ml-1 text-black text-lg font-light leading-tight mt-2">好きな言葉</h4>
-                <p className="ml-1 text-black text-sm font-light leading-none">じゅげむ じゅげむ ごこうのすりきれ かい</p>
+                <p className="ml-1 text-black text-sm font-light leading-none">志あるところに道は開ける</p>
               </div>
               <div className="ml-8">
                 <h3 className="text-black text-xl font-light leading-loose">代表からのメッセージ</h3>
