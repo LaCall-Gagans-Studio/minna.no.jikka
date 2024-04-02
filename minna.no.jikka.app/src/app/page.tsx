@@ -5,7 +5,7 @@ import LinkButton from "./components/linkButton";
 import HoverPopup from "./components/hoverPopup";
 import OrgInfo from "./components/orgInfo";
 import ContactForm from "./components/contactForm";
-import Test from "./components/test";
+import Calender from "./components/calender";
 
 export default function Home() {
 
@@ -21,7 +21,7 @@ export default function Home() {
 
         <div className="w-full">
           <h1 className="my-12 text-center text-black text-3xl font-medium fleading-loose">みんなの実家 活動スケジュール</h1>
-          <Test />
+          <Calender />
         </div>
 
         <div className="News bg-zinc-300 w-full py-8">{/* news section */}
@@ -61,7 +61,7 @@ export default function Home() {
             <div className="w-full my-10 flex flex-wrap justify-around">
               <HoverPopup 
                 pjName_Jpn="みなよし食堂" pjName_Eng="Minayoshi Cafeteria" type="main" 
-                popupLinks={[ "https://i.pinimg.com/736x/5d/ed/0e/5ded0ed747e77d8bcd1767e5ace4c444.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<>赤ちゃんから高齢者の方まで。<br/>誰でも気軽に参加できる地域食堂です。<br/>ご家族、お友達、おひとり様、どなたでも<br/>昼食をお楽しみいただけます。<br/><br/>対象：どなたでも<br/>（要予約/<a href="#" className="text-orange-300">カレンダー</a>もしくは<a href="#" className="text-orange-300">お電話</a>から）<br/>時間：火・水・金・土の11:30 ~14:00<br/>値段：18歳以下無料 / 大人300円</>} />
               <HoverPopup 
                 pjName_Jpn="フリースクールほとり" pjName_Eng="FreeSchool Hotori" type="main" 
@@ -69,19 +69,19 @@ export default function Home() {
                 popupContent={<>学校に通うのが難しい小中学生を対象に<br/>学習支援を行っています。<br/>誰かとつながっていたいけど、<br/>大きな集団は難しい。<br/>今はゆっくり自分のペースで進めたい。<br/>そんな思いがあればぜひ見学に。<br/><br/>対象：小学生（4年生以上）・中学生<br/>時間：月・火・木・金の10:00 ~15:00</>} />
               <HoverPopup 
                 pjName_Jpn="みんなの広場" pjName_Eng="Square for All" type="main" 
-                popupLinks={[ "https://i.pinimg.com/736x/5d/ed/0e/5ded0ed747e77d8bcd1767e5ace4c444.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<>自分が得意なことや人と共有したいこと、<br/>ちょっとした集まりが開きたいときに。<br/>あなた自身が”1日ひろば長”となって、<br/>みんなの広場をともに作っていきましょ～。<br/><br/>対象：どなたでも<br/>　　 （要予約/<a href="#" className="text-orange-300">お電話</a>もしくは<a href="#" className="text-orange-300">こちら</a>から）<br/>例　：初心者が小説を書く会<br/>　　　当たらない占いを共に楽しむ集まり<br/>　　　セラピー＆ヨガ教室<br/>費用：無料</>} />
               <HoverPopup 
                 pjName_Jpn="えんがわ高校" pjName_Eng="Engawa High School" type="sub" 
-                popupLinks={[ "https://i.pinimg.com/736x/5d/ed/0e/5ded0ed747e77d8bcd1767e5ace4c444.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<></>} />
               <HoverPopup 
                 pjName_Jpn="川べり野菜の駅" pjName_Eng="Riverside Vegetable Sta." type="sub" 
-                popupLinks={[ "https://i.pinimg.com/736x/5d/ed/0e/5ded0ed747e77d8bcd1767e5ace4c444.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<></>} />
               <HoverPopup 
                 pjName_Jpn="いろは塾" pjName_Eng="Iroha juku" type="sub" 
-                popupLinks={[ "https://i.pinimg.com/736x/5d/ed/0e/5ded0ed747e77d8bcd1767e5ace4c444.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<></>} />
             </div>
             <LinkButton href="/another-path" text="お問い合わせ" />
