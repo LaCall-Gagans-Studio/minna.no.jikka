@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 
-const HoverPopup = ({ pjName_Jpn, pjName_Eng, type, popupContent, popupLinks}) => {
+const activitiesPopup = ({ pjName_Jpn, pjName_Eng, type, popupContent, popupLinks}) => {
     const [showPopup, setShowPopup] = useState(false);
     const [hoverTimeout, setHoverTimeout] = useState(null);
     const [currentImage, setCurrentImage] = useState(0); // スライドショーの現在の画像インデックス
@@ -98,4 +98,4 @@ const HoverPopup = ({ pjName_Jpn, pjName_Eng, type, popupContent, popupLinks}) =
     );
 };
 
-export default HoverPopup;
+export default activitiesPopup;

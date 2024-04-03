@@ -1,11 +1,13 @@
 //import Image from "next/image";
+"use client";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import LinkButton from "./components/linkButton";
-import HoverPopup from "./components/hoverPopup";
+import ActivitiesPopup from "./components/activitiesPopup";
 import OrgInfo from "./components/orgInfo";
 import ContactForm from "./components/contactForm";
-import Calender from "./components/calender";
+import Calender from "./components/calendar";
+import Test from "./components/test";
 
 export default function Home() {
 
@@ -16,16 +18,22 @@ export default function Home() {
       <div className="Body bg-white">
 
         <div className="Hero h-96 bg-gray-200">{/* hero section */}
-          
+          <img src="./images/index-hero-temp.webp" className="w-full h-full object-cover" alt="logo" />
         </div>
 
+        <div className="h-96 w-full bg-slate-500 text-black">
+          <Test/>
+        </div>
+        
+
         <div className="w-full">
-          <h1 className="my-12 text-center text-black text-3xl font-medium fleading-loose">みんなの実家 活動スケジュール</h1>
+          <h1 className="mt-12 mb-2 text-center text-black text-3xl font-medium leading-loose">みんなのカレンダー</h1>
+          <p className="mb-12 text-center text-black text-xm font-medium leading-loose">下のイベントを押すことでそれぞれのイベントが確認できます</p>
           <Calender />
         </div>
 
         <div className="News bg-zinc-300 w-full py-8">{/* news section */}
-          <h1 className="mt-12 text-center text-black text-3xl font-medium fleading-loose">ニュース</h1>
+          <h1 className="mt-12 text-center text-black text-3xl font-medium leading-loose">ニュース</h1>
           <div className="my-6 h-96 flex flex-col flex-wrap gap-5 justify-start mx-12 overflow-x-scroll snap-x">
             <div className="w-40 h-40 bg-neutral-50 snap-center" />
             <div className="w-40 h-40 bg-neutral-50 snap-center" />
@@ -59,28 +67,40 @@ export default function Home() {
             <h1 className="text-center text-black text-3xl font-medium leading-10">ACTIVITIES</h1>
             <p className="text-center text-black text-normal font-light leading-normal">みんなの実家で行われている主な活動</p>
             <div className="w-full my-10 flex flex-wrap justify-around">
-              <HoverPopup 
-                pjName_Jpn="みなよし食堂" pjName_Eng="Minayoshi Cafeteria" type="main" 
+              <ActivitiesPopup 
+                pjName_Jpn="みなよし食堂" pjName_Eng="Minayoshi Community Cafe" type="main" 
                 popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<>赤ちゃんから高齢者の方まで。<br/>誰でも気軽に参加できる地域食堂です。<br/>ご家族、お友達、おひとり様、どなたでも<br/>昼食をお楽しみいただけます。<br/><br/>対象：どなたでも<br/>（要予約/<a href="#" className="text-orange-300">カレンダー</a>もしくは<a href="#" className="text-orange-300">お電話</a>から）<br/>時間：火・水・金・土の11:30 ~14:00<br/>値段：18歳以下無料 / 大人300円</>} />
-              <HoverPopup 
+              <ActivitiesPopup 
                 pjName_Jpn="フリースクールほとり" pjName_Eng="FreeSchool Hotori" type="main" 
                 popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<>学校に通うのが難しい小中学生を対象に<br/>学習支援を行っています。<br/>誰かとつながっていたいけど、<br/>大きな集団は難しい。<br/>今はゆっくり自分のペースで進めたい。<br/>そんな思いがあればぜひ見学に。<br/><br/>対象：小学生（4年生以上）・中学生<br/>時間：月・火・木・金の10:00 ~15:00</>} />
-              <HoverPopup 
+              <ActivitiesPopup 
                 pjName_Jpn="みんなの広場" pjName_Eng="Square for All" type="main" 
                 popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<>自分が得意なことや人と共有したいこと、<br/>ちょっとした集まりが開きたいときに。<br/>あなた自身が”1日ひろば長”となって、<br/>みんなの広場をともに作っていきましょ～。<br/><br/>対象：どなたでも<br/>　　 （要予約/<a href="#" className="text-orange-300">お電話</a>もしくは<a href="#" className="text-orange-300">こちら</a>から）<br/>例　：初心者が小説を書く会<br/>　　　当たらない占いを共に楽しむ集まり<br/>　　　セラピー＆ヨガ教室<br/>費用：無料</>} />
-              <HoverPopup 
-                pjName_Jpn="えんがわ高校" pjName_Eng="Engawa High School" type="sub" 
+              <ActivitiesPopup 
+                pjName_Jpn="みんなのたいわルーム" pjName_Eng="taiwaroom" type="sub" 
                 popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<></>} />
-              <HoverPopup 
-                pjName_Jpn="川べり野菜の駅" pjName_Eng="Riverside Vegetable Sta." type="sub" 
+              <ActivitiesPopup 
+                pjName_Jpn="通信スペースえんがわ" pjName_Eng="Engawa High School" type="sub" 
                 popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<></>} />
-              <HoverPopup 
-                pjName_Jpn="いろは塾" pjName_Eng="Iroha juku" type="sub" 
+              <ActivitiesPopup 
+                pjName_Jpn="M(みんなの)レジデンシ!" pjName_Eng="E-Residency for All" type="sub" 
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupContent={<></>} />
+              <ActivitiesPopup 
+                pjName_Jpn="川べり野菜の家" pjName_Eng="Riverside Vegetable Sta." type="sub" 
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupContent={<></>} />
+              <ActivitiesPopup 
+                pjName_Jpn="マンサポ！" pjName_Eng="Monthly Supporter" type="sub" 
+                popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
+                popupContent={<></>} />
+              <ActivitiesPopup 
+                pjName_Jpn="日心個別指導塾" pjName_Eng="Nishinn juku" type="sub" 
                 popupLinks={[ "https://i.pinimg.com/564x/07/ae/c9/07aec943a8cc192f4a6320fe09ec3ba7.jpg","https://i.pinimg.com/564x/42/b6/a8/42b6a854a99c9df623a5671a39151475.jpg","https://i.pinimg.com/564x/bf/23/fa/bf23fa7be62c30bfcf98c6a4355b8eba.jpg","https://i.pinimg.com/564x/e5/df/71/e5df71ede36c850dd77c8211af4cdb44.jpg","https://i.pinimg.com/564x/76/38/a4/7638a4f8bc3e8bdc9877d32895714d2b.jpg" ]}
                 popupContent={<></>} />
             </div>
@@ -95,7 +115,7 @@ export default function Home() {
               <LinkButton href="/another-path" text="サポーターを見る" />
             </div>
             <div className="ml-12">
-              <div className="mt-8 text-black text-2xl font-normal leading-10">みんなの実家サポーター【みんサポ】募集中！</div>
+              <div className="mt-8 text-black text-2xl font-normal leading-10">みんなの実家サポーター【マンサポ】募集中！</div>
               <p className="text-black text-sm font-light leading-normal">みんなの実家では、私たちの取り組みを応援してくださる方々を求めています。<br/>私たちの活動は、皆様のご支援によって成り立っております。<br/><br/>【サポートの選択肢】<br/>ご予算に合わせて、ご支援の頻度や金額を選べます。<br/>一度きりのご寄付、または毎月の定期的なご支援を選択できます。<br/>ご支援していただく金額は自由に設定可能です<br/>　（500 / 1000 / 5000円等。みなさまの負担にならない範囲でのご支援をお待ちしています）<br/><br/>【資金の活用例】<br/>トイレのバリアフリー改修・地域食堂台所の改修・フリースクール活動費・物品購入・etc<br/><br/>ご支援は、みんなの実家に関わる全ての人が心地よく過ごせるために利用させていただきます。<br/>みんなの実家は、みなさまの心温まるサポートに感謝しています。ありがとうございますm(__)m</p>
             </div>
           </div>

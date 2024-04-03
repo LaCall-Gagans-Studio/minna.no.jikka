@@ -6,7 +6,7 @@ import { send } from '@emailjs/browser'
 const ContactForm = () => {
     const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const submitMail = async (data) => {
+    const submitMail = async (data: Record<string, unknown> | undefined) => {
         const serviceId = "service_51oqoi8" //process.env.REACT_APP_EMAILJS_SERVICE_ID; //ServeceIDを取得
         const templateId = "template_r8cidwr" //process.env.REACT_APP_EMAILJS_TEMPLATE_ID;// TemplateIDを取得
         const publicId = "hVaLgPuf2D4w2DB-B" //process.env.REACT_APP_EMAILJS_PUBLIC_ID; // Public Keyを取得

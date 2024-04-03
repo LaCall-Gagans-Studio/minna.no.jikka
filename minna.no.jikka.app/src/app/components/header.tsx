@@ -19,7 +19,7 @@ const Header: React.FC = () => {
             </a>
             <div className="flex absolute right-0">
                 {setNavLinks.map((navLink, index) => (
-                    <div className={`px-9 ${index >= 0 && index < setNavLinks.length - 1 ? 'border-r border-white' : ''}`}>
+                    <div key={index} className={`px-9 ${index >= 0 && index < setNavLinks.length - 1 ? 'border-r border-white' : ''}`}>
                         <a key={index} href={navLink.url} className="text-white text-lg hover:text-orange-200 transition duration-150 ease-in-out">
                             {navLink.text}
                         </a>
