@@ -26,7 +26,7 @@ const Calendar = () => {
         const fetchedEvents = [];
 
         for (const doc of querySnapshot.docs) {
-            const subCollectionRef = collection(db, `events/${doc.id}/participants`);
+            const subCollectionRef = collection(db, `events/${doc.id}/participants`);//今後：サブコレクションを一般とほとり用で分ける。
             const subCollectionSnapshot = await getDocs(subCollectionRef);
             const subCollectionCount = subCollectionSnapshot.size; // サブコレクション内のドキュメント数
             const docData = doc.data();
