@@ -1,15 +1,22 @@
-id //ドキュメントのID
-title //タイトル
-start //開始時間
-end //終了時間
-host //公式or 団体or 個人名
-type //みなよし=1,ほとり=2,ひろば一般=4,ひろば公式=3,利用不可=0
-rel //一般開放=0,予約=1,私的利用=2
-body //紹介テキスト
-capacity-boolean //予約システムに繋げるか否か,繋げたときの定員
-participants //参加者（capacity-boolean）アリの時のみ
+main collection (events)
+    //id //ドキュメントのID (string)
+    title //タイトル (string)
+    start //開始時間 (string)
+    end //終了時間 (string)
+    host //公式or 団体or 個人名 (string)
+    type //みなよし=1,ほとり=2,ひろば一般=4,ひろば公式=3,利用不可=0 (number)
+    rel //一般開放=0,予約=1,私的利用=2 (number)
+    body //紹介テキスト (string)
+    rev //予約システム (map)
+        isRev //予約システム有効 (boolean)
+        numCapN //一般予約可能数 (num)
+        numCapH //ほとりコード予約可能数 (num)
+        numCurN //一般予約現在数 (num) 予約を送信するたびこちらに加算
+        numCurH //ほとりコード予約現在数 (num) 予約を送信するたびこちらに加算
+
+    sub collection (participantsN) //一般予約格納
+    sub collection (participantsH) //ほとりコード予約格納
 
 //ISO
 2024-04-03T12:00
 2024-04-03T17:00
-

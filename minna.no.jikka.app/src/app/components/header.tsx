@@ -9,7 +9,7 @@ const setNavLinks: Array<{ text: string, url: string }> = [
     { text: "お問い合わせ", url: "/" },
 ];
 
-const Header: React.FC = () => {
+const Header = () => {
     return(
     <>
         <div className="fixed w-full flex items-center h-20 top-0 bg-orange-300 z-50">

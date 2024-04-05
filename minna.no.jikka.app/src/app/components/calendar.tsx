@@ -11,7 +11,7 @@ const typeToColorMap: { [key: number]: string } = { //背景色の変更
   1: '#FF5757', //みなよし食堂（赤）
   2: '#549D62', //FSほとり（緑）
   3: '#FDBA74', //公式ひろば（濃黄）
-  4: '#FF5757', //一般ひろば（薄黄）
+  4: '#FFBD59', //一般ひろば（薄黄）
 };
 
 const Calendar = () => {
@@ -19,37 +19,35 @@ const Calendar = () => {
   const [showPopup, setShowPopup] = useState(false);//Popup用のハンドラ
   const [selectedEvent, setSelectedEvent] = useState<any>(null);//Popup用のハンドラ
 
-  //Google Firebase Database処理
+  //Google Firestore処理
   useEffect(() => {
     const fetchData = async () => {
         const querySnapshot = await getDocs(collection(db, "events"));
-        const fetchedEvents = [];
+        const fetchEventPromises = querySnapshot.docs.map(async (doc) => {
+          // docData の取得とイベントオブジェクトの作成
+          const docData = doc.data();
+          
+          return {
+              title: docData.title,
+              start: docData.start,
+              end: docData.end,
+              backgroundColor: typeToColorMap[docData.type] || 'white',
+              extendedProps: {
+                  body: 'BioChemistry',
+                  isRev: docData.rev.isRev,//予約可能であるか
+                  numCapacity_N: docData.rev.isRev ? docData.rev.numN : undefined, //一般予約の予約可能数を格納
+                  numCapacity_H: docData.rev.isRev ? docData.rev.numH : undefined, //ほとりコードの予約可能数を格納
+              }
+          };
+        });
 
-        for (const doc of querySnapshot.docs) {
-            const subCollectionRef = collection(db, `events/${doc.id}/participants`);//今後：サブコレクションを一般とほとり用で分ける。
-            const subCollectionSnapshot = await getDocs(subCollectionRef);
-            const subCollectionCount = subCollectionSnapshot.size; // サブコレクション内のドキュメント数
-            const docData = doc.data();
-            const event = {
-                title: docData.title,
-                start: docData.start,
-                end: docData.end,
-                backgroundColor: typeToColorMap[docData.type] || 'white',
-                extendedProps: {
-                    body: 'BioChemistry',
-                    isRev: subCollectionCount,
-                    numCurrent: '', // 必要に応じて値をセット
-                    numCapacity: '' // 必要に応じて値をセット
-                }
-            };
-            fetchedEvents.push(event);
-        }
+        // すべてのイベントデータの取得が完了するのを待つ
+        const fetchedEvents = await Promise.all(fetchEventPromises);
         setEvents(fetchedEvents);
     };
 
     fetchData();
   }, []);
-
 
   //Popup処理
   const handleEventClick = (clickInfo: any) => {
@@ -59,6 +57,8 @@ const Calendar = () => {
       end: clickInfo.event.end,
       body: clickInfo.event.extendedProps.body,
       isRev: clickInfo.event.extendedProps.isRev,
+      numCapacity_N: clickInfo.event.extendedProps.numCapacity_N,
+      numCapacity_H: clickInfo.event.extendedProps.numCapacity_H,
     });
     setShowPopup(true);
   };
@@ -99,7 +99,8 @@ const Calendar = () => {
           <p>開始時間: {selectedEvent.start.toString()}</p>
           <p>終了時間: {selectedEvent.end.toString()}</p>
           <p>詳細: <br />{selectedEvent.body}</p>
-          <p>詳細: <br />{selectedEvent.isRev}</p>
+          <p>予約可能: <br />{selectedEvent.isRev}</p>
+          <p>予約可能数: <br />{selectedEvent.numCapacity_N}</p>
           <button onClick={closePopup} className='absolute bottom-6 left-1/2 -translate-x-1/2 '>閉じる</button>
         </div>
         )}
