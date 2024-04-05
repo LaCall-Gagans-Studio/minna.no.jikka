@@ -6,7 +6,7 @@ import Footer from "./components/footer";
 import LinkButton from "./components/linkButton";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-const Test = lazy(() => import('./components/test'));
+const RevAdmin = lazy(() => import('./components/revAdmin'));
 
 const NotFound = lazy(() => import('./components/notFound'));
 const Calender = lazy(() => import('./components/calendar'));
@@ -22,7 +22,7 @@ export default function Index() {
         <Suspense fallback={<div className='bg-white text-black text-6xl h-[100vh] w-[100vw]'>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Test />} />
+            <Route path="/login" element={<RevAdmin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
