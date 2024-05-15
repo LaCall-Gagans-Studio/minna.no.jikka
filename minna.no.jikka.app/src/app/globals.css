@@ -31,3 +31,20 @@ body {
     text-wrap: balance;
   }
 }
+
+/* スクロールバー全体のスタイル */
+::-webkit-scrollbar {
+  width: 5px; /* スクロールバーの幅 */
+  height: 10px;
+}
+
+/* スクロールバーのハンドル部分 */
+::-webkit-scrollbar-thumb {
+  background-color: #fdba74; /* ハンドルの色 */
+  border-radius: 5px; /* ハンドルの角の丸み */
+}
+
+/* スクロールバーのトラック部分 */
+::-webkit-scrollbar-track {
+  background: #F3F4F6; /* トラックの背景色 */
+}
