@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaHouseUser, FaBasketballBall, FaRegNewspaper, FaRegLightbulb, FaFire, FaBullhorn } from 'react-icons/fa';
-import { Link } from 'react-scroll'
+import { Link, Element } from 'react-scroll';
 
 const setNavLinks = [
-    { element: <div className='flex gap-3 border-l-2 lg:border-0 pl-3'><FaHouseUser size={24} /> みんなの実家とは</div>, url: "/" },
-    { element: <div className='flex gap-3 border-l-2 lg:border-0 pl-3'><FaBasketballBall size={24} /> 活動</div>, url: "/" },
-    { element: <div className='flex gap-3 border-l-2 lg:border-0 pl-3'><FaRegNewspaper size={24} /> ニュース</div>, url: "/" },
-    { element: <div className='flex gap-3 border-l-2 lg:border-0 pl-3'><FaRegLightbulb size={24} /> プロフィール</div>, url: "/" },
-    { element: <div className='flex gap-3 border-l-2 lg:border-0 pl-3'><FaFire size={24} /> 応援する</div>, url: "/" },
-    { element: <div className='flex gap-3 border-l-2 lg:border-0 pl-3'><FaBullhorn size={24} /> お問い合わせ</div>, url: "/" },
+    { id:1, element: <Link to="about" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center' smooth={true} duration={500}><FaHouseUser size={24} /> みんなの実家とは</Link>, url: "/" },
+    { id:2, element: <Link to="activities" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center' smooth={true} duration={500}><FaBasketballBall size={24} /> 活動</Link>, url: "/" },
+    { id:3, element: <Link to="news" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center' smooth={true} duration={500}><FaRegNewspaper size={24} /> ニュース</Link>, url: "/" },
+    { id:4, element: <Link to="profile" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center' smooth={true} duration={500}><FaRegLightbulb size={24} /> プロフィール</Link>, url: "/" },
+    { id:5, element: <Link to="supporter" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center' smooth={true} duration={500}><FaFire size={24} /> 応援する</Link>, url: "/" },
+    { id:6, element: <Link to="contact" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center' smooth={true} duration={500}><FaBullhorn size={24} /> お問い合わせ</Link>, url: "/" },
 ];
 
 const Header = () => {

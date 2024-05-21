@@ -1,9 +1,9 @@
 "use client";
 import React, { Suspense, lazy} from 'react';
+import AnimationWrapper from "./components/animationWrapper";
 import { Link, Element } from 'react-scroll';
 import Header from "./components/header";
 import Footer from "./components/footer";
-import AnimationWrapper from "./components/animationWrapper";
 import LinkButton from "./components/linkButton";
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import InstagramPosts from './components/instagramPosts';
@@ -49,8 +49,9 @@ const Home = () => {
         <Calender />
       </div> */}
 
-      <div className="bg-zinc-300 w-full py-8">{/* news section */}
+      <div className="bg-zinc-200 w-full py-8">{/* news section */}
         <AnimationWrapper animationType="fade-up">
+          <Element name="news" />
           <h1 className="mt-12 text-center text-black text-xl font-medium leading-loose lg:text-3xl">ニュース</h1>
           <InstagramPosts />
         </AnimationWrapper>
@@ -63,6 +64,7 @@ const Home = () => {
             <img src="./images/index_about_1.webp" className="w-full " alt="再読み込みしてください" />
           </AnimationWrapper>
           <AnimationWrapper animationType='fade-up'>
+          <Element name="about" />
           <p className="text-center text-black text-base lg:text-normal font-bold leading-normal">『ともに笑う。ともに学ぶ。ともに生きる。』</p>
           <p className="text-center text-black text-sm lg:text-normal font-normal leading-normal"><br/><br/>【一般社団法人みんなの実家】は、<br className="block lg:hidden"/>地域を支え合う、<br className="block lg:hidden"/>人生を支え合う、<br className="block lg:hidden"/>一人一人を大切にし合う。<br className="block lg:hidden"/>そんな地域に密着した<br className="block lg:hidden"/>”第三の居場所”として運営されている<br className="block lg:hidden"/>総合型サードプレイス拠点です。<br/><br/>地域食堂やフリースクール、<br className="block lg:hidden"/>施設の貸し出しやイベントを展開しております。<br/>赤ちゃんから高齢者まで<br className="block lg:hidden"/>”だれでも気軽に”立ち寄ることができます。<br/><br/>さまざまな年齢層や背景を持つ方々と<br className="block lg:hidden"/>一期一会のつながりを楽しみながら、<br/>川べりの古民家で<br className="block lg:hidden"/>ゆったりとした時間を共に過ごしましょう。</p>
           </AnimationWrapper>
@@ -71,12 +73,15 @@ const Home = () => {
               <LinkButton href="/another-path" text="試しに行ってみる" />
             </Link>
           </AnimationWrapper>
-          <LinkButton href="/another-path" text="もっと詳しく" />
+          <Link to="activities" smooth={true} duration={500}>
+            <LinkButton href="/another-path" text="もっと詳しく" />
+          </Link>
         </div>
 
         <div className="About-Details w-5/6 mx-auto flex flex-col items-center">
           <h1 className="text-center text-black text-3xl font-medium leading-10">ACTIVITIES</h1>
           <p className="text-center text-black text-normal font-light leading-normal">みんなの実家で行われている主な活動</p>
+          <Element name="activities" />
           <div className="w-full my-5 lg:my-10 flex flex-wrap gap-1 justify-around">
             <ActivitiesPopup popupContentId="minayoshi" type="main" />{/* みなよし食堂*/}
             <ActivitiesPopup popupContentId="hotori" type="main" />{/* FSほとり */}
@@ -112,6 +117,7 @@ const Home = () => {
 
       <div className="Relation w-full flex flex-col items-center justify-center bg-white">{/* relation section */}
         <AnimationWrapper animationType='fade-up'>
+          <Element name="profile" />
           <ChairmanInfo />
         </AnimationWrapper>
         <AnimationWrapper animationType='fade-up' additionalClass='w-full'>
@@ -119,11 +125,11 @@ const Home = () => {
           </AnimationWrapper>
       </div>
 
-      <Element name="contact"></Element>
+      <Element name="contact" />
       <ContactForm />{/* contact section */}
 
       <div className="w-full mt-12 flex flex-col items-center justify-center bg-white">{/* access section */}
-        <Element name="access"></Element>
+        <Element name="access" />
         <h1 className="text-center text-black text-xl lg:text-2xl font-normal leading-9">アクセス</h1>
         <h4 className="text-center text-black text-sm lg:text-lg font-light leading-normal">みんなの実家への行き方</h4>
         <div className="flex flex-col lg:flex-row items-center h-auto w-11/12 lg:w-3/4 lg:justify-around mt-8">

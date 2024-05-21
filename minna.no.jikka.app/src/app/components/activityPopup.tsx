@@ -92,7 +92,7 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
                     <div className='h-3/5 lg:h-auto w-full lg:w-5/12 pl-5 flex flex-col justify-rounded'>
                         <h1 className="mt-12 text-black text-xl lg:text-4xl font-normal leading-10">{content.pjName_Jpn}</h1>
                         <h3 className="mb-6 text-black text-sm lg:text-2xl font-normal leading-loose">{content.pjName_Eng}</h3>
-                        <div className='text-black text-sm lg:text-base h-full lg:h-auto overflow-y-scroll w-11/12'>
+                        <div className='text-black mr-0 lg:mr-6 text-sm lg:text-base h-full lg:h-auto overflow-y-scroll w-11/12'>
                             {content.description}
                         </div>
                     </div>
