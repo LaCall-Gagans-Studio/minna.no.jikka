@@ -150,15 +150,8 @@ const activityContent: TextsMap = {
     "engawa": {
         description: (
             <>
-                赤ちゃんから高齢者の方まで。<br/>
-                誰でも気軽に参加できる地域食堂です。<br/>
-                ご家族、お友達、おひとり様、どなたでも<br/>
-                昼食をお楽しみいただけます。<br/>
-                <br/>
-                対象：どなたでも<br/>
-                （要予約/<a href="#" className="text-orange-300">カレンダー</a>もしくは<a href="#" className="text-orange-300">お電話</a>から）<br/>
-                時間：火・水・金・土の11:30 ~14:00<br/>
-                値段：18歳以下無料 / 大人300円
+                準備中です。<br />
+                もうしばらくお待ちくださいm(__)m<br />
             </>
         ),
         pjName_Jpn:"通信スペースえんがわ",
@@ -174,10 +167,8 @@ const activityContent: TextsMap = {
     "residency": {
         description: (
             <>
-                赤ちゃんから高齢者の方まで。<br/>
-                誰でも気軽に参加できる地域食堂です。<br/>
-                ご家族、お友達、おひとり様、どなたでも<br/>
-                昼食をお楽しみいただけます。<br/>
+                準備中です。<br />
+                もうしばらくお待ちくださいm(__)m<br />
             </>
         ),
         pjName_Jpn:"M(みんなの)レジデンシ!",
@@ -193,10 +184,8 @@ const activityContent: TextsMap = {
     "vegetable": {
         description: (
             <>
-                赤ちゃんから高齢者の方まで。<br/>
-                誰でも気軽に参加できる地域食堂です。<br/>
-                ご家族、お友達、おひとり様、どなたでも<br/>
-                昼食をお楽しみいただけます。<br/>
+                準備中です。<br />
+                もうしばらくお待ちくださいm(__)m<br />
             </>
         ),
         pjName_Jpn:"川べり野菜の家",
@@ -318,11 +307,11 @@ const activityContent: TextsMap = {
         pjName_Jpn:"にっしん館",
         pjName_Eng:"Nishinn juku",
         popupLinks: [
-            "./images/activities/hotori1.webp",
-            "./images/activities/hotori2.webp",
-            "./images/activities/hotori3.webp",
-            "./images/activities/hotori4.webp",
-            "./images/activities/hotori5.webp",
+            "./images/activities/nishin1.webp",
+            "./images/activities/nishin2.webp",
+            "./images/activities/nishin3.webp",
+            "./images/activities/nishin4.webp",
+            "./images/activities/nishin5.webp",
             ]
     },
 };

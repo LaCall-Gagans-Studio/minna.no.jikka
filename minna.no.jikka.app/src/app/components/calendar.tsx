@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { db } from '../firebaseConfig';
-import { collection, getDocs } from 'firebase/firestore';
+import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import RevForm from './revForm';
+import { FaTimes } from 'react-icons/fa';
+
+//const RevForm = lazy(() => import('./revForm'));
 
 const typeToColorMap: { [key: number]: string } = { //背景色の変更
   0: 'gray', //利用不可（灰）
@@ -18,6 +22,7 @@ const Calendar = () => {
   const [events, setEvents] = useState<any>([]);//Database用のイベントハンドラ
   const [showPopup, setShowPopup] = useState(false);//Popup用のハンドラ
   const [selectedEvent, setSelectedEvent] = useState<any>(null);//Popup用のハンドラ
+  const [showRevForm, setShowRevForm] = useState(false); // RevFormの表示制御用
 
   //Google Firestore処理
   useEffect(() => {
@@ -31,12 +36,9 @@ const Calendar = () => {
               title: docData.title,
               start: docData.start,
               end: docData.end,
-              backgroundColor: typeToColorMap[docData.type] || 'white',
+              backgroundColor: typeToColorMap[docData.type] || 'white', //背景色を格納
               extendedProps: {
-                  body: 'BioChemistry',
-                  isRev: docData.rev.isRev,//予約可能であるか
-                  numCapacity_N: docData.rev.isRev ? docData.rev.numN : undefined, //一般予約の予約可能数を格納
-                  numCapacity_H: docData.rev.isRev ? docData.rev.numH : undefined, //ほとりコードの予約可能数を格納
+                  id: docData.id,
               }
           };
         });
@@ -49,22 +51,40 @@ const Calendar = () => {
     fetchData();
   }, []);
 
-  //Popup処理
-  const handleEventClick = (clickInfo: any) => {
-    setSelectedEvent({
-      title: clickInfo.event.title,
-      start: clickInfo.event.start,
-      end: clickInfo.event.end,
-      body: clickInfo.event.extendedProps.body,
-      isRev: clickInfo.event.extendedProps.isRev,
-      numCapacity_N: clickInfo.event.extendedProps.numCapacity_N,
-      numCapacity_H: clickInfo.event.extendedProps.numCapacity_H,
-    });
+  //Popup起動処理
+  const handleEventClick = async (clickInfo: any) => {
+    setShowRevForm(false);
+    const docRef = doc(db, "events", clickInfo.event.extendedProps.id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const docData = docSnap.data();
+      setSelectedEvent({
+        title: clickInfo.event.title,
+        start: clickInfo.event.start,
+        end: clickInfo.event.end,
+        id: clickInfo.event.extendedProps.id,
+        body: docData.body || 'No details',
+        isRev: docData.rev.isRev,
+        numRestN: docData.rev ? docData.rev.numCurN ? docData.rev.numCapN - docData.rev.numCurN : docData.rev.numCapN : undefined,
+      });
+    }
     setShowPopup(true);
   };
 
+  //Popup畳む処理
   const closePopup = () => {
     setShowPopup(false);
+    setShowRevForm(false);
+  };
+
+  //日付変更処理
+  const formatDate = (date:any) => {
+    const optionsDate = { month: 'long', day: 'numeric' };
+    const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: false };
+    const formattedDate = date.toLocaleDateString('ja-JP', optionsDate);
+    const formattedTime = date.toLocaleTimeString('ja-JP', optionsTime).slice(0, 5);
+    return `${formattedDate} ${formattedTime}`;
   };
 
   return (
@@ -94,15 +114,29 @@ const Calendar = () => {
           eventClick={handleEventClick}
         />
         {showPopup && (
-        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 w-[50vw] h-[80vh] p-12 bg-white shadow-lg border border-gray-200 transition-transform duration-1000 ease-out scale-95 hover:scale-100 z-10">
-          <h1 className='text-3xl'>{selectedEvent.title}</h1>
-          <p>開始時間: {selectedEvent.start.toString()}</p>
-          <p>終了時間: {selectedEvent.end.toString()}</p>
-          <p>詳細: <br />{selectedEvent.body}</p>
-          <p>予約可能: <br />{selectedEvent.isRev}</p>
-          <p>予約可能数: <br />{selectedEvent.numCapacity_N}</p>
-          <button onClick={closePopup} className='absolute bottom-6 left-1/2 -translate-x-1/2 '>閉じる</button>
-        </div>
+          <>
+            <div className="fixed top-24 left-1/2 transform -translate-x-1/2 w-[50vw] h-[80vh] p-12 bg-white shadow-lg border border-gray-200 transition-transform duration-1000 ease-out scale-95 hover:scale-100 z-50">
+              <div className='h-2/3 w-full'>
+                <h1 className='text-3xl'>{selectedEvent.title}</h1>
+                <p>開始時間: {formatDate(new Date(selectedEvent.start))}</ p>
+                <p>終了時間: {formatDate(new Date(selectedEvent.end))}</ p>
+                <p>詳細: <br />{selectedEvent.body}</p>
+                {selectedEvent.isRev && (
+                  <>
+                    <p>残り予約可能数:{selectedEvent.numRestN}</p>
+                  </>
+                )}
+                {selectedEvent.numRestN > 0 && (
+                    <button onClick={() => setShowRevForm(true)} className=''>予約する</button>
+                )}
+              </div>
+              {showRevForm && (
+                <RevForm documentID={selectedEvent.id} numRestN={selectedEvent.numCapN} />
+              )}
+              <button onClick={closePopup} className='absolute top-10 right-10'><FaTimes size={30} className='text-orange-300 hover:size-8 duration-200' /></button>
+            </div>
+            <div className='fixed top-0 left-0 bg-black backdrop-blur-3xl opacity-30 h-[100vh] w-[100vw] z-40'></div>
+          </>
         )}
       </div>
     </div>

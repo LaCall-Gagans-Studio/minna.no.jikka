@@ -5,12 +5,12 @@ import { Link, Element } from 'react-scroll';
 import Header from "./components/header";
 import Footer from "./components/footer";
 import LinkButton from "./components/linkButton";
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link as Links} from 'react-router-dom';
 import InstagramPosts from './components/instagramPosts';
 
-//const RevAdmin = lazy(() => import('./components/revAdmin'));
+const RevAdmin = lazy(() => import('./components/revAdmin'));
 const NotFound = lazy(() => import('./components/notFound'));
-//const Calender = lazy(() => import('./components/calendar'));
+const Calender = lazy(() => import('./components/calendar'));
 const ActivitiesPopup = lazy(() => import('./components/activityPopup'));
 const ChairmanInfo = lazy(() => import('./components/chairmanInfo'));
 const OrgInfo = lazy(() => import('./components/orgInfo'));
@@ -25,6 +25,7 @@ export default function Index() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/notFound" element={<NotFound />} />
+            <Route path="/admin" element={<RevAdmin />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
@@ -42,12 +43,13 @@ const Home = () => {
         <img src="./images/index-hero-temp.webp" className="w-full h-full object-cover" alt="再読み込みしてください" />
       </div>
 
-      
-      {/* <div className="w-full">{/* calendar section 
+      <Links to={"/admin"}>aaaaaaaaa</Links>
+
+      <div className="w-full">{/* calendar section */}
         <h1 className="mt-12 mb-2 text-center text-black text-3xl font-medium leading-loose">みんなのカレンダー</h1>
         <p className="mb-12 text-center text-black text-xm font-medium leading-loose">下のイベントを押すことでそれぞれのイベントが確認できます</p>
         <Calender />
-      </div> */}
+      </div>
 
       <div className="bg-zinc-200 w-full py-8">{/* news section */}
         <AnimationWrapper animationType="fade-up">
