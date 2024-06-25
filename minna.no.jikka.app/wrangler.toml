@@ -14,3 +14,5 @@ main = "./dist/page.tsx" # ビルド後のメインファイル
 
 [site]
 bucket = "./out" # ビルド後の出力ディレクトリ（Next.jsのデフォルトは"out"）
+
+pages_build_output_dir = "./out"

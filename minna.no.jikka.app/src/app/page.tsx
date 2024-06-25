@@ -1,6 +1,6 @@
 "use client";
 //Library
-import React, { Suspense, lazy} from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import AnimationWrapper from "./components/animationWrapper";
 import { Link, Element } from 'react-scroll';
 import { BrowserRouter, Routes, Route, Link as RouterLink} from 'react-router-dom';
@@ -22,16 +22,28 @@ const Building = lazy(() => import('./building'));
 
 
 export default function Index() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      setIsClient(true);
+      console.log("client only");
+    }
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <main>
       <BrowserRouter>
         <Header />
-        <Suspense fallback={<div className='bg-white text-black text-6xl h-screen w-screen absolute left-1/2 transform -translate-x-1/2 '>Loading...</div>}>
+        <Suspense fallback={<div className='bg-white text-black text-6xl h-screen w-screen absolute left-1/2 transform -translate-x-1/2'>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/admin" element={<RevAdmin />}/>
-            <Route path="/building" element={<Building />} />
             <Route path="/admin" element={<RevAdmin />} />
+            <Route path="/building" element={<Building />} />
           </Routes>
         </Suspense>
         <Footer />

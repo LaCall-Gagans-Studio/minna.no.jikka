@@ -55,3 +55,11 @@ export default config;
 
 
 
+module.exports = {
+  plugins: [
+    'postcss-import',
+    'tailwindcss/nesting', // ここでCSSネスティングプラグインを追加
+    'tailwindcss',
+    'autoprefixer',
+  ],
+};
