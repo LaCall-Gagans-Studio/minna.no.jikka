@@ -55,12 +55,12 @@ const Header = () => {
                     {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
                 </button>
             </div>
-            <div className={`flex flex-col lg:flex-row absolute lg:static w-full lg:w-auto lg:items-center lg:h-20 bg-orange-300 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[100%]'} lg:translate-x-0`}>
+            <div className={`flex flex-col gap-5 lg:gap-0 lg:flex-row absolute lg:static w-full lg:w-auto lg:items-center h-[100vh] lg:h-20 bg-orange-300 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[100%]'} lg:translate-x-0`}>
                 {setNavLinks.map((navLink) => (
                     <button
                         key={navLink.id}
                         onClick={() => handleNavClick(navLink)}
-                        className="text-white text-lg text-nowrap p-4 hover:text-orange-200 transition duration-150 ease-in-out flex gap-2 items-center"
+                        className="text-white border-b-2 w-5/6 lg:border-none lg:w-5/6 text-lg text-nowrap p-4 hover:text-orange-200 transition duration-150 ease-in-out flex gap-2 items-center"
                     >
                         {navLink.icon} {navLink.element}
                     </button>

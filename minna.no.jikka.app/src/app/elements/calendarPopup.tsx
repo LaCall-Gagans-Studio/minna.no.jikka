@@ -9,53 +9,53 @@ interface CalendarPopupProps {
 const CalendarPopup: React.FC<CalendarPopupProps> = ({ selectedEvent, onClose }) => {
     return (
         <>
-            <div className='fixed top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-[50vw] h-auto p-12 bg-white shadow-lg border border-gray-200 z-50'>
-                <div className='w-full h-56 overflow-y-scroll pl-4'>
-                {/* タイトル */}
-                <h1 className='text-3xl font-thin mb-4'>{selectedEvent.title}</h1>
-                
-                {/* 団体 */}
-                <div className='mb-4 flex'>
-                    <div className='rounded-lg border py-2 flex bg-orange-300 items-center'>
-                    <FaHouseUser size={24} className='text-white ml-2'/>
-                    <p className='ml-2 text-white pr-1'>主催団体</p>
+            <div className='fixed top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-[90vw] lg:w-[50vw] h-[50vh] lg:h-auto py-12 lg:p-12 bg-white shadow-lg border border-gray-200 z-50'>
+                <div className='w-full h-11/12 lg:h-56 overflow-y-scroll pl-4'>
+                    {/* タイトル */}
+                    <h1 className='text-3xl font-thin mb-4'>{selectedEvent.title}</h1>
+                    
+                    {/* 団体 */}
+                    <div className='mb-4 flex'>
+                        <div className='rounded-lg border py-2 flex bg-orange-300 items-center'>
+                        <FaHouseUser size={24} className='text-white ml-2'/>
+                        <p className='ml-2 text-white pr-1'>主催団体</p>
+                        </div>
+                        <p className='py-2 ml-2'>{formatType(selectedEvent.type)}</p>
                     </div>
-                    <p className='py-2 ml-2'>{formatType(selectedEvent.type)}</p>
-                </div>
 
-                {/* 日程 */}
-                <div className='mb-4 flex'>
-                    <div className='rounded-lg border py-2 flex bg-orange-300'>
-                    <FaRegCalendarAlt size={24} className='text-white ml-2'/>
-                    <p className='ml-2 text-white pr-1'>日　程　</p>
+                    {/* 日程 */}
+                    <div className='mb-4 flex'>
+                        <div className='rounded-lg border py-2 flex bg-orange-300'>
+                        <FaRegCalendarAlt size={24} className='text-white ml-2'/>
+                        <p className='ml-2 text-white pr-1'>日　程　</p>
+                        </div>
+                        <p className='py-2 ml-2'>{formatDate(new Date(selectedEvent.start))}</p>
+                        <p className='py-2 mx-4'>～</p>
+                        <p className='py-2'>{formatDate(new Date(selectedEvent.end))}</ p>
                     </div>
-                    <p className='py-2 ml-2'>{formatDate(new Date(selectedEvent.start))}</p>
-                    <p className='py-2 mx-4'>～</p>
-                    <p className='py-2'>{formatDate(new Date(selectedEvent.end))}</ p>
-                </div>
 
-                {/* 予約形態 */}
-                <div className='flex mb-4'>
-                    <div className='rounded-lg border py-2 flex bg-orange-300 items-center'>
-                    <FaTasks size={24} className='text-white ml-2'/>
-                    <p className='ml-2 text-white pr-1'>予約形態</p>
+                    {/* 予約形態 */}
+                    <div className='flex mb-4'>
+                        <div className='rounded-lg border py-2 flex bg-orange-300 items-center'>
+                        <FaTasks size={24} className='text-white ml-2'/>
+                        <p className='ml-2 text-white pr-1'>予約形態</p>
+                        </div>
+                        <p className='py-2 ml-2'>{formatRel(selectedEvent.rel)}</p>
                     </div>
-                    <p className='py-2 ml-2'>{formatRel(selectedEvent.rel)}</p>
-                </div>
-                
-                {/* 詳細 */}
-                <div className='flex mb-4'>
-                    <div className='rounded-lg border py-2 flex bg-orange-300 items-center h-10'>
-                    <FaShapes size={24} className='text-white ml-2'/>
-                    <p className='ml-2 text-white pr-1'>詳　細　</p>
+                    
+                    {/* 詳細 */}
+                    <div className='flex mb-4'>
+                        <div className='rounded-lg border py-2 flex bg-orange-300 items-center h-10'>
+                        <FaShapes size={24} className='text-white ml-2'/>
+                        <p className='ml-2 text-white pr-1'>詳　細　</p>
+                        </div>
+                        <p className='py-2 ml-2'>{selectedEvent.body}</p>
                     </div>
-                    <p className='py-2 ml-2'>{selectedEvent.body}</p>
+                    </div>
+                    <button onClick={onClose} className='absolute top-10 right-10'>
+                    <FaTimes size={30} className='text-orange-300 hover:size-8 duration-200' />
+                    </button>
                 </div>
-                </div>
-                <button onClick={onClose} className='absolute top-10 right-10'>
-                <FaTimes size={30} className='text-orange-300 hover:size-8 duration-200' />
-                </button>
-            </div>
             <div className='fixed top-0 left-0 bg-black backdrop-blur-3xl opacity-30 h-[100vh] w-[100vw] z-40'></div>{/* 黒背景 */}
         </>
     );

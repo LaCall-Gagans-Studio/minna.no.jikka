@@ -55,7 +55,7 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => setShowPopup(true)} className="relative mt-6 lg:mt-8">
             {type === "main" ? (
                 <AnimationWrapper animationType='fade-up'>
-                    <div className="w-[80vw] lg:w-[23vw] h-auto bg-white lg:bg-gray-100 rounded-3xl shadow flex flex-row lg:flex-col items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
+                    <div className="w-[80vw] lg:w-[23vw] h-auto py-2 lg:py-0 border lg:border-0 bg-gray-100 rounded-3xl shadow flex flex-row lg:flex-col items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
                         <img src={`./images/activities/${popupContentId}/${popupContentId}_icon.webp`} className='ml-12 lg:ml-0 text-left lg:text-center w-16 h-16 lg:w-52 lg:h-52 my-3 lg:my-10' alt='読み込み失敗'></img>
                         <div className="ml-6 lg:ml-0 lg:w-52 lg:h-16 items-center">
                             <h3 className="text-left lg:text-center text-orange-300 text-sm lg:text-xl lg:font-bold leading-9">{content.pjName_Jpn}</h3>
@@ -66,7 +66,7 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
                 </AnimationWrapper>
             ) : (
                 <AnimationWrapper animationType='scale-in-center'>
-                    <div className="w-[35vw] lg:w-[23vw] h-auto lg:h-24 bg-white lg:bg-gray-100 rounded-lg lg:rounded-3xl shadow flex flex-col lg:flex-row items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
+                    <div className="w-[35vw] lg:w-[23vw] h-auto py-2 lg:py-0 lg:h-24 border lg:border-0 bg-white lg:bg-gray-100 rounded-lg lg:rounded-3xl shadow flex flex-col lg:flex-row items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
                         <img src={`./images/activities/${popupContentId}/${popupContentId}_icon.webp`} className='lg:ml-12 w-10 h-10' alt='読み込み失敗'></img>
                         <div className='lg:ml-6 items-center'>
                             <h3 className="text-center lg:text-left text-orange-300 text-sm lg:text-lg lg:font-bold">{content.pjName_Jpn}</h3>

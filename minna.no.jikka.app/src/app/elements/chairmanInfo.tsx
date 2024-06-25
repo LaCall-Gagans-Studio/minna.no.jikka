@@ -8,7 +8,7 @@ const ChairmanInfo = () => {
     return(
         <div className="Relation-Leader flex flex-col items-center mt-12 w-full">
             <div className='flex rounded-3xl px-8 py-2 bg-gray-100 lg:bg-white shadow lg:shadow-transparent'>
-                <h1 className="text-center text-black text-xl lg:text-2xl font-medium leading-loose">代表者プロフィール</h1>
+                <h1 className="w-60 lg:w-auto text-center text-black text-xl lg:text-2xl font-medium leading-loose">代表者プロフィール</h1>
                 <button onClick={toggleMenu} className="text-black ml-2 lg:hidden z-10">
                         {isOpen ? <FaAngleUp size={24} /> : <FaAngleDown size={24} />}
                 </button>

@@ -74,11 +74,11 @@ const Calendar = () => {
 
   return (
     <div className='w-full h-full'>
-      <div className='w-5/6 m-auto text-black'>
+      <div className='w-5/6 m-auto mb-4 text-black'>
         <FullCalendar
           timeZone={'local'}
           plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
-          initialView='dayGridMonth'
+          initialView = {isLargeScreen ? 'timeGridWeek' : 'listMonth'}
           headerToolbar={{
             left: 'title',
             center: 'prev,today,next',
