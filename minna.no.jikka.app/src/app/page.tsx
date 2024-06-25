@@ -60,7 +60,7 @@ const Home = () => {
 
       {/* SNS section */}
       <div className='relative'>
-        <div className='flex flex-col justify-center lg:flex-none lg:absolute right-0 top-[-3.5rem] gap-0 py-3 px-10 rounded-xl lg:bg-white'>
+        <div className='flex flex-col justify-center lg:flex-none lg:absolute right-0 top-[-5rem] gap-0 py-3 px-10 rounded-tl-xl lg:bg-white'>
 
           <div className='flex items-center my-2'>
             <a className='absolute z-30 left-7' href='https://www.instagram.com/minna_no_jikka2022/'>
@@ -141,7 +141,7 @@ const Home = () => {
       <div className="Support w-full flex justify-center bg-zinc-100 pb-10">
         <AnimationWrapper animationType='fade-up'>
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
-            <div className="w-1/2 lg:ml-28 mt-8 flex flex-col items-center">
+            <div className="w-1/2 lg:w-1/4 lg:ml-28 mt-8 flex flex-col items-center">
               <img src="./images/index_supporter_logo.webp" className="w-full h-auto" />
               <RouterLink to="/building" className='flex gap-3 pl-3 items-center'>
                 <LinkButton href="/building" text="サポーターを見る" />
