@@ -13,7 +13,10 @@ const AnimationWrapper: React.FC<AnimationWrapperProps> = ({ children, animation
         threshold: 0.5,
     });
 
-    const animation = 'animate-' + animationType;
+    let animation = 'animate-fade-up';
+    if (animationType != 'fade-up') {
+        animation = 'animate-' + animationType;
+    }
     const combinedClass = `${inView ? animation: 'opacity-0'} ${additionalClass}`;
 
     return (

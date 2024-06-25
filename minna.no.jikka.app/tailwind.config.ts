@@ -13,7 +13,7 @@ const config: Config = {
       },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out both',
-        'scale-in-center': 'scale-in-center 0.6s ease-out both',
+        'scale-in-center': 'scale-in-center 1s ease-out both',
         'bounce': 'bounce 2s infinite' // bounceアニメーションの追加
       },
       keyframes: {
