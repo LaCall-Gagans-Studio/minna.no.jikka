@@ -98,10 +98,3 @@ body {
 .hero-image.active {
   opacity: 1;
 }
-
-//印刷用
-@media print {
-  .no-print{
-    display: none;
-  }
-}

@@ -3,9 +3,7 @@ import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/**/*.{js,ts,jsx,tsx}', // ここにプロジェクトのファイルパスを追加
   ],
   theme: {
     extend: {
@@ -52,14 +50,3 @@ const config: Config = {
 };
 
 export default config;
-
-
-
-module.exports = {
-  plugins: [
-    'postcss-import',
-    'tailwindcss/nesting', // ここでCSSネスティングプラグインを追加
-    'tailwindcss',
-    'autoprefixer',
-  ],
-};

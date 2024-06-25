@@ -1,14 +1,11 @@
 module.exports = {
-  plugins: [
-    'postcss-import',
-    'tailwindcss/nesting', // ここでCSSネスティングプラグインを追加
-    'tailwindcss',
-    'autoprefixer',
-    require('postcss-preset-env')({
-      stage: 1,
-      features: {
-        'nesting-rules': true
-      }
-    })
-  ],
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    'tailwindcss': {},
+    'autoprefixer': {},
+    'postcss-preset-env': {
+      browsers: 'last 2 versions',
+    },
+  },
 };
