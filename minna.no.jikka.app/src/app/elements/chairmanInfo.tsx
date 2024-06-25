@@ -10,7 +10,7 @@ const ChairmanInfo = () => {
             <div className='flex rounded-3xl px-8 py-2 bg-orange-100 lg:bg-white shadow lg:shadow-transparent'>
                 <h1 className="w-60 lg:w-auto text-center text-black text-xl lg:text-2xl font-medium leading-loose">代表者プロフィール</h1>
                 <button onClick={toggleMenu} className="text-black ml-2 lg:hidden z-10">
-                        {isOpen ? <FaAngleUp size={24} /> : <FaAngleDown size={24} />}
+                    {isOpen ? <FaAngleUp size={24} /> : <FaAngleDown size={24} />}
                 </button>
             </div>
             <div className={`duration-600 transition-all w-full flex flex-col items-center z-0 ${isOpen ? 'translate-y-0 h-auto opacity-100' : '-translate-y-[100%] h-0 opacity-0'} lg:translate-y-0 lg:h-auto lg:opacity-100`}>

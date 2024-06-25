@@ -64,21 +64,13 @@ const Home = () => {
 
       {/* SNS section */}
       <div className='relative'>
-        <div className='flex flex-col justify-center lg:flex-none lg:absolute right-0 top-[-5rem] gap-0 py-3 px-10 rounded-tl-xl lg:bg-white'>
-
-          <div className='flex items-center my-2'>
-            <a className='absolute z-30 left-7' href='https://www.instagram.com/minna_no_jikka2022/'>
-              <img src={`./sns/instagram.svg`} className='w-20 h-20 hover:scale-105 ' alt='Instagram'/>
-            </a>
-            <div className='bg-orange-300 pl-16 text-white border px-2 py-5 text-xs text-nowrap rounded-lg'>最新ニュースはこちら！</div>
-          </div>
-
-          <div className='flex items-center my-2'>
-            <a className='absolute z-30 left-7' href='https://lin.ee/J5nurNO'>
-              <img src={`./sns/line.svg`} className='w-20 h-20 hover:scale-105 ' alt='Instagram'/>
-            </a>
-            <div className='bg-orange-300 pl-16 text-white border px-2 py-5 text-xs text-nowrap rounded-lg'>食堂のオンライン予約ができます！</div>
-          </div>
+        <div className='absolute w-full lg:w-auto flex flex-row items-center justify-center top-[-3rem] gap-10 bg-white py-6 px-8 rounded-lg'>
+          <a href='https://www.instagram.com/minna_no_jikka2022/' className='hover:-translate-y-1 duration-500'>
+            <img  src="./sns/index-sns-instagram.webp" className="w-40 object-contain" alt="再読み込みしてください" />
+          </a>
+          <a href='https://lin.ee/J5nurNO' className='hover:-translate-y-1 duration-500'>
+            <img src="./sns/index-sns-line.webp" className="w-40 object-contain" alt="再読み込みしてください" />
+          </a>
         </div>
       </div>
 
