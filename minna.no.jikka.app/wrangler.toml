@@ -1,0 +1,16 @@
+name = "minna.no.jikka.app"
+type = "javascript" # TypeScriptを使用している場合も、"javascript"とします
+account_id = "8015ecc04479fbc4e659bedeb65fe2c60154f"
+workers_dev = true
+compatibility_date = "2024-06-25" # 本日の日付を入れてください
+
+[build]
+command = "npm run build" # ビルドコマンド
+cwd = "/minnano.jikka.app" # プロジェクトのルートディレクトリ
+
+[build.upload]
+format = "service-worker"
+main = "./dist/page.tsx" # ビルド後のメインファイル
+
+[site]
+bucket = "./out" # ビルド後の出力ディレクトリ（Next.jsのデフォルトは"out"）
