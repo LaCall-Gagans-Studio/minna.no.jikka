@@ -60,7 +60,7 @@ const Home = () => {
 
       {/* SNS section */}
       <div className='relative'>
-        <div className='absolute right-0 top-[-4rem] gap-20 py-3 px-10 rounded-xl bg-white'>
+        <div className='flex flex-col justify-center lg:flex-none lg:absolute right-0 top-[-3.5rem] gap-0 py-3 px-10 rounded-xl lg:bg-white'>
 
           <div className='flex items-center my-2'>
             <a className='absolute z-30 left-7' href='https://www.instagram.com/minna_no_jikka2022/'>
@@ -73,18 +73,20 @@ const Home = () => {
             <a className='absolute z-30 left-7' href='https://lin.ee/J5nurNO'>
               <img src={`./sns/line.svg`} className='w-20 h-20 hover:scale-105 ' alt='Instagram'/>
             </a>
-            <div className='bg-orange-300 pl-16 text-white border px-2 py-5 text-xs text-nowrap rounded-lg'>最新ニュースはこちら！</div>
+            <div className='bg-orange-300 pl-16 text-white border px-2 py-5 text-xs text-nowrap rounded-lg'>食堂のオンライン予約ができます！</div>
           </div>
         </div>
       </div>
 
-      <div className="w-full">{/* calendar section */}
+      {/* Calendar section */}
+      <div className="w-full">
         <h1 className="mt-12 text-center text-black text-3xl font-medium leading-loose">みんなのカレンダー</h1>
         <p className="mb-12 text-center text-slate-500 text-xm font-medium leading-loose">下のイベントを押すことでそれぞれのイベントが確認できます</p>
         <Calender />
       </div>
 
-      <div className="bg-zinc-200 w-full py-8">{/* news section */}
+      {/* News section */}
+      <div className="bg-zinc-200 w-full py-8">
         <AnimationWrapper animationType="fade-up">
           <Element name="news" />
           <h1 className="mt-12 text-center text-black text-xl font-medium leading-loose lg:text-3xl">ニュース</h1>
@@ -92,7 +94,8 @@ const Home = () => {
         </AnimationWrapper>
       </div>
       
-      <div className="About bg-white w-full">{/* about section */}
+      {/* About section */}
+      <div className="About bg-white w-full">
         <div className="About-Brief w-5/6 lg:w-1/2 mx-auto flex flex-col items-center">
           <Element name="about" />
           <AnimationWrapper animationType='fade-up'>
@@ -112,6 +115,7 @@ const Home = () => {
           </Link>
         </div>
 
+        {/* Activities */}
         <div className="About-Details w-5/6 mx-auto flex flex-col items-center">
           <h1 className="text-center text-black text-3xl font-medium leading-10">ACTIVITIES</h1>
           <p className="text-center text-black text-normal font-light leading-normal">みんなの実家で行われている主な活動</p>
@@ -133,12 +137,13 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="Support w-full flex justify-center bg-zinc-100 pb-10">{/* support section */}
+      {/* Support section */}
+      <div className="Support w-full flex justify-center bg-zinc-100 pb-10">
         <AnimationWrapper animationType='fade-up'>
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
-            <div className="w-1/4 lg:ml-28 mt-8 flex flex-col items-center">
+            <div className="w-1/2 lg:ml-28 mt-8 flex flex-col items-center">
               <img src="./images/index_supporter_logo.webp" className="w-full h-auto" />
-              <RouterLink to="/building" className='flex gap-3 border-l-2 lg:border-0 pl-3 items-center'>
+              <RouterLink to="/building" className='flex gap-3 pl-3 items-center'>
                 <LinkButton href="/building" text="サポーターを見る" />
               </RouterLink>
             </div>
@@ -150,7 +155,8 @@ const Home = () => {
           </AnimationWrapper>
       </div>
 
-      <div className="Relation w-full flex flex-col items-center justify-center bg-white">{/* relation section */}
+      {/* Relation section */}
+      <div className="Relation w-full flex flex-col items-center justify-center bg-white">
         <AnimationWrapper animationType='fade-up'>
           <Element name="profile" />
           <ChairmanInfo />
@@ -160,15 +166,17 @@ const Home = () => {
           </AnimationWrapper>
       </div>
 
+      {/* Contact section */}
       <Element name="contact" />
-      <ContactForm />{/* contact section */}
+      <ContactForm />
 
-      <div className="w-full mt-12 flex flex-col items-center justify-center bg-white">{/* access section */}
+      {/* access section */}
+      <div className="w-full mt-12 flex flex-col items-center justify-center bg-white">
         <Element name="access" />
         <h1 className="text-center text-black text-xl lg:text-2xl font-normal leading-9">アクセス</h1>
         <h4 className="text-center text-black text-sm lg:text-lg font-light leading-normal">みんなの実家への行き方</h4>
         <div className="flex flex-col lg:flex-row items-center h-auto w-11/12 lg:w-3/4 lg:justify-around mt-8">
-          <iframe className="w-full lg:w-1/2 h-56 lg:h-80 justify-center" src="https://www.youtube.com/embed/V5Y_mnlZqKg?si=pGITvAxbTMpN9D8Q&amp;controls=0" title="Map To Destination" allow="picture-in-picture; web-share"></iframe>
+          <iframe className="w-[380px] lg:w-1/2 h-56 lg:h-80 justify-center" src="https://www.youtube.com/embed/V5Y_mnlZqKg?si=pGITvAxbTMpN9D8Q&amp;controls=0" title="Map To Destination" allow="picture-in-picture; web-share"></iframe>
           <div className="lg:ml-4 w-5/6 lg:w-2/5">
             <h4 className="text-neutral-400 mt-3 lg:mt-0 text-xs lg:text-xl font-normal leading-normal">住所</h4>
             <p className="text-black lg:mt-3 text-sm lg:text-lg font-light leading-normal">〒680-0843<br/>鳥取県鳥取市南吉方３丁目２１５番地</p>
