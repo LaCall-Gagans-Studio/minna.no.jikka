@@ -4,13 +4,13 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb:0, 0, 0;
+  --background-end-rgb:0, 0, 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -83,4 +83,25 @@ body {
 }
 .fc .fc-today-button:disabled {
   opacity: 1;
+}
+
+//スライドショー用
+.hero-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.hero-image.active {
+  opacity: 1;
+}
+
+//印刷用
+@media print {
+  .no-print{
+    display: none;
+  }
 }

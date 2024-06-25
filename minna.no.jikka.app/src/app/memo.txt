@@ -1,22 +1,30 @@
-main collection (events)
-    //id //ドキュメントのID (string)
-    title //タイトル (string)
-    start //開始時間 (string)
-    end //終了時間 (string)
-    host //公式or 団体or 個人名 (string)
-    type //みなよし=1,ほとり=2,ひろば一般=4,ひろば公式=3,利用不可=0 (number)
-    rel //一般開放=0,予約=1,私的利用=2 (number)
-    body //紹介テキスト (string)
-    rev //予約システム (map)
-        isRev //予約システム有効 (boolean)
-        numCapN //一般予約可能数 (num)
-        numCapH //ほとりコード予約可能数 (num)
-        numCurN //一般予約現在数 (num) 予約を送信するたびこちらに加算
-        numCurH //ほとりコード予約現在数 (num) 予約を送信するたびこちらに加算
+#fdba74 オレンジ（メインカラー｜orange-300）
 
-    sub collection (participantsN) //一般予約格納
-    sub collection (participantsH) //ほとりコード予約格納
+DB構造
+default
+    - events
+        - document
+         .id //ドキュメントのID (string)
+         .title //イベントのタイトル (string)
+         .date //イベントの日付（string）
+         .start //開始時間 (timestamp)
+         .end //終了時間 (timestamp)
+         .type //イベントの種類&主催｜みなよし=1,ほとり=2,ひろば一般=任意の名称 (string),ひろば公式=3,利用不可=0, 
+         .rel //イベントの公開設定｜選択してください=0,一般開放=1,予約=2,私的利用=3 (integer)
+         .body //紹介テキスト (string)
+         .rev //予約システム (map)
+          .isRev //予約システム機能の真偽値 (boolean)
+          .numCapN //予約可能数（一般）(integer)
+          .numCurN //予約確定数（一般）(integer)
+          .numCapH //予約可能数（ほとり）(integer)
+          .numCapH //予約確定数（ほとり）(integer)
+            - participantsN //予約格納（一般）
+            - participantsH //予約格納（ほとり）
+    - temps
+        - document
+         .id //イベントリファレンスID (string)
+         .hotori //ほとりコード仕様の真偽値 (boolean)
+         .order //シークエンス管理 (num)
+         .count //予約格納 (string)
 
-//ISO
-2024-04-03T12:00
-2024-04-03T17:00
+・typeの任意の名称はhostをフォームでマージすることによって実装
