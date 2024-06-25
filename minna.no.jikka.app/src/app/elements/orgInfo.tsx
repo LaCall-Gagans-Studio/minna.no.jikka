@@ -19,8 +19,8 @@ const OrgInfo = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return(
-        <div className="Relation-Org flex flex-col items-center mt-12 overflow-hidden w-full">
-            <div className='flex rounded-3xl px-8 py-2 bg-gray-100 lg:bg-white shadow lg:shadow-transparent'>
+        <div className="Relation-Org flex flex-col items-center mt-4 lg:mt-12 overflow-hidden w-full">
+            <div className='flex rounded-3xl px-8 py-2 bg-orange-100 lg:bg-white shadow lg:shadow-transparent'>
                 <h1 className="w-60 lg:w-auto text-center text-black text-xl lg:text-2xl font-medium leading-loose">法人情報</h1>
                 <button onClick={toggleMenu} className="text-black ml-2 lg:hidden z-10">
                         {isOpen ? <FaAngleUp size={24} /> : <FaAngleDown size={24} />}

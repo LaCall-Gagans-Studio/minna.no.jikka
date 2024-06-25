@@ -189,7 +189,7 @@ const activityContent: TextsMap = {
                 もうしばらくお待ちくださいm(__)m<br />
             </>
         ),
-        pjName_Jpn:"M(みんなの)レジデンシ!",
+        pjName_Jpn:"Mレジデンシ!",
         pjName_Eng:"E-Residency for All",
         popupLinks: [
             "./images/activities/notReady/notReady.webp"

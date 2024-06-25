@@ -57,9 +57,9 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
                 <AnimationWrapper animationType='fade-up'>
                     <div className="w-[80vw] lg:w-[23vw] h-auto py-2 lg:py-0 border lg:border-0 bg-gray-100 rounded-3xl shadow flex flex-row lg:flex-col items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
                         <img src={`./images/activities/${popupContentId}/${popupContentId}_icon.webp`} className='ml-12 lg:ml-0 text-left lg:text-center w-16 h-16 lg:w-52 lg:h-52 my-3 lg:my-10' alt='読み込み失敗'></img>
-                        <div className="ml-6 lg:ml-0 lg:w-52 lg:h-16 items-center">
+                        <div className="ml-6 lg:ml-0 lg:w-52 lg:h-16 items-start lg:items-center">
                             <h3 className="text-left lg:text-center text-orange-300 text-sm lg:text-xl lg:font-bold leading-9">{content.pjName_Jpn}</h3>
-                            <div className="w-4/5 h-px m-auto my-1 bg-gray-400 relative group-hover:w-full transition-all duration-700 ease-in-out before:absolute before:content-[''] before:rounded-full before:w-1 before:h-1 before:bg-gray-400 before:top-1/2 before:left-0 before:-translate-y-1/2 after:absolute after:content-[''] after:rounded-full after:w-1 after:h-1 after:bg-gray-400 after:top-1/2 after:right-0 after:-translate-y-1/2" />
+                            <div className="w-4/5 h-px lg:m-auto my-1 bg-gray-400 relative group-hover:w-full transition-all duration-700 ease-in-out before:absolute before:content-[''] before:rounded-full before:w-1 before:h-1 before:bg-gray-400 before:top-1/2 before:left-0 before:-translate-y-1/2 after:absolute after:content-[''] after:rounded-full after:w-1 after:h-1 after:bg-gray-400 after:top-1/2 after:right-0 after:-translate-y-1/2" />
                             <p className="text-left lg:text-center text-gray-400 text-xs lg:text-sm leading-tight">{content.pjName_Eng}</p>
                         </div>
                     </div>
@@ -103,3 +103,9 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
 };
 
 export default ActivityPopup;
+
+
+<>
+    <div className="m-auto fter:w-1 after:h-1 after:bg-gray-400 after:top-1/2 after:right-0 after:-translate-y-1/2" />
+    <div className="fter:w-1 after:h-1 after:bg-gray-400 after:top-1/2 after:right-0 after:-translate-y-1/2" />
+</>

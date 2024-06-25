@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 interface AnimationWrapperProps {
     children: React.ReactNode;
-    animationType: string;
+    animationType?: string;
     additionalClass?: string;
 }
 
@@ -13,7 +13,7 @@ const AnimationWrapper: React.FC<AnimationWrapperProps> = ({ children, animation
         threshold: 0.5,
     });
 
-    const animation = "animate-fade-up";
+    const animation = 'animate-' + animationType;
     const combinedClass = `${inView ? animation: 'opacity-0'} ${additionalClass}`;
 
     return (

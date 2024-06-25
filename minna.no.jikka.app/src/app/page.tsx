@@ -19,6 +19,9 @@ const ContactForm = lazy(() => import('./elements/contactForm'));
 //pages
 const RevAdmin = lazy(() => import('./revAdmin'));
 const Building = lazy(() => import('./building'));
+const PrivacyPolicy = lazy(() => import('./privacyPolicy'))
+
+import {FaLocationArrow} from 'react-icons/fa'
 
 
 export default function Index() {
@@ -44,6 +47,7 @@ export default function Index() {
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<RevAdmin />} />
             <Route path="/building" element={<Building />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
           </Routes>
         </Suspense>
         <Footer />
@@ -89,7 +93,8 @@ const Home = () => {
       <div className="bg-zinc-200 w-full py-8">
         <AnimationWrapper animationType="fade-up">
           <Element name="news" />
-          <h1 className="mt-12 text-center text-black text-xl font-medium leading-loose lg:text-3xl">ニュース</h1>
+          <h1 className="text-center text-black text-3xl font-medium leading-10">NEWS</h1>
+          <p className="mb-4 lg:mb-0 text-center text-black text-normal font-light leading-normal">最近のお知らせ</p>
           <InstagramPosts />
         </AnimationWrapper>
       </div>
@@ -175,13 +180,18 @@ const Home = () => {
         <Element name="access" />
         <h1 className="text-center text-black text-xl lg:text-2xl font-normal leading-9">アクセス</h1>
         <h4 className="text-center text-black text-sm lg:text-lg font-light leading-normal">みんなの実家への行き方</h4>
-        <div className="flex flex-col lg:flex-row items-center h-auto w-11/12 lg:w-3/4 lg:justify-around mt-8">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start h-auto w-11/12 lg:w-3/4 lg:justify-around mt-8">
           <iframe className="w-[380px] lg:w-1/2 h-56 lg:h-80 justify-center" src="https://www.youtube.com/embed/V5Y_mnlZqKg?si=pGITvAxbTMpN9D8Q&amp;controls=0" title="Map To Destination" allow="picture-in-picture; web-share"></iframe>
-          <div className="lg:ml-4 w-5/6 lg:w-2/5">
-            <h4 className="text-neutral-400 mt-3 lg:mt-0 text-xs lg:text-xl font-normal leading-normal">住所</h4>
-            <p className="text-black lg:mt-3 text-sm lg:text-lg font-light leading-normal">〒680-0843<br/>鳥取県鳥取市南吉方３丁目２１５番地</p>
-            <div className="w-full h-64 mt-5 bg-zinc-300" >
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.8092147268467!2d134.23942167544794!3d35.48426394076943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35558f7a3d93cd2d%3A0x809ef6331c025e9!2z44G_44KT44Gq44Gu5a6f5a62!5e0!3m2!1sja!2sjp!4v1709526478459!5m2!1sja!2sjp" width="600" height="450" className="w-full h-full" loading="lazy" ></iframe>
+          <div className="lg:ml-4 w-[380px] lg:w-2/5 mt-8 lg:mt-0">
+            <div>
+              <div className='flex gap-1 mt-1'>
+                <FaLocationArrow size={20} className='text-orange-300'/>
+                <h4 className="lg:mt-0 text-xs lg:text-base font-normal leading-normal">住所</h4>
+              </div>
+              <p className="text-black lg:mt-3 text-sm lg:text-sm font-light leading-normal">〒680-0843<br/>鳥取県鳥取市南吉方３丁目２１５番地</p>
+            </div>
+            <div className="w-full h-56 mt-4 bg-zinc-300" >
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.8092147268467!2d134.23942167544794!3d35.48426394076943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35558f7a3d93cd2d%3A0x809ef6331c025e9!2z44G_44KT44Gq44Gu5a6f5a62!5e0!3m2!1sja!2sjp!4v1709526478459!5m2!1sja!2sjp" width="600" height="200" className='h-full w-full' loading="lazy" ></iframe>
             </div>
           </div>
         </div>
