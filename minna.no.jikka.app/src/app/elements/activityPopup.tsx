@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import activityContent from './activityContent';
 import FadeUpAnimationWrapper from "../components/fadeUpAnimationWrapper";
-import ScaleInAnimationWrapper from "../components/ScaleInAnimationWrapper";
+import ScaleInAnimationWrapper from "../components/scaleInAnimationWrapper";
 
 interface ActivityPopupProps {
     type: string;
