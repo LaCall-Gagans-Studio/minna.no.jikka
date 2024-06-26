@@ -79,7 +79,7 @@ const Home = () => {
       <div className="w-full">
         <ScaleInAnimationWrapper>
         <h1 className="mt-12 text-center text-black text-3xl font-medium leading-loose">みんなのカレンダー</h1>
-        <p className="mb-12 text-center text-slate-500 text-xm font-medium leading-loose">下のイベントを押すことでそれぞれのイベントが確認できます</p>
+        <p className="mb-12 text-center text-slate-500 text-xs lg:text-sm font-medium leading-normal">下のイベントを押すことで<br className="block lg:hidden"/>それぞれのイベントが確認できます</p>
           <Calender />
         </ScaleInAnimationWrapper>
       </div>
