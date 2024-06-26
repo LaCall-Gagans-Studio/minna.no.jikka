@@ -30,7 +30,7 @@
 
 /* ツールバー当日ボタン（当日を含まない場合） */
 .fc .fc-today-button {
-    background-color:#ede7e6;
+    background-color:transparent;
     color: #37362f;
     border: none;
     outline: none;
@@ -58,14 +58,23 @@
 .fc .fc-button-primary:not(:disabled).fc-button-focus {
     opacity:1;
     background-color: #fdba74;
-    color: #acaba9;
+    color: white;
+    box-shadow: none;
+}
+
+/* ツールバー選択中タイプ */
+.fc .fc-button-primary:not(:disabled):hover,
+.fc .fc-button-primary:not(:disabled).fc-button-hover {
+    opacity:1;
+    background-color: #fdba74;
+    color: white;
     box-shadow: none;
 }
 
 /* 土日の欄 */
 .fc .fc-day-sat,
 .fc .fc-day-sun {
-    background-color: #ede7e6;
+    background-color: #fafafa;
 }
 
 /* 枠 */

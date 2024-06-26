@@ -22,7 +22,7 @@ const config: Config = {
           '100%': { transform: 'translateY(0)', opacity: '1'},
         },
         'scale-in-center': {
-          '0%': { transform: 'scaleX(0.5)', opacity: '0'},
+          '0%': { transform: 'scaleX(0.7)', opacity: '0'},
           '100%': { transform: 'scale(1)', opacity: '1'},
         },
         'bounce': { // bounceアニメーションの定義

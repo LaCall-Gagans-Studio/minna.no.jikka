@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import activityContent from './activityContent';
-import AnimationWrapper from "../components/animationWrapper";
+import FadeUpAnimationWrapper from "../components/fadeUpAnimationWrapper";
+import ScaleInAnimationWrapper from "../components/ScaleInAnimationWrapper";
 
 interface ActivityPopupProps {
     type: string;
@@ -54,7 +55,7 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={() => setShowPopup(true)} className="relative mt-6 lg:mt-8">
             {type === "main" ? (
-                <AnimationWrapper animationType='fade-up'>
+                <FadeUpAnimationWrapper>
                     <div className="w-[80vw] lg:w-[23vw] h-auto py-2 lg:py-0 border lg:border-0 bg-gray-100 rounded-3xl shadow flex flex-row lg:flex-col items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
                         <img src={`./images/activities/${popupContentId}/${popupContentId}_icon.webp`} className='ml-12 lg:ml-0 text-left lg:text-center w-16 h-16 lg:w-52 lg:h-52 my-3 lg:my-10' alt='読み込み失敗'></img>
                         <div className="ml-6 lg:ml-0 lg:w-52 lg:h-16 items-start lg:items-center">
@@ -63,9 +64,9 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
                             <p className="text-left lg:text-center text-gray-400 text-xs lg:text-sm leading-tight">{content.pjName_Eng}</p>
                         </div>
                     </div>
-                </AnimationWrapper>
+                </FadeUpAnimationWrapper>
             ) : (
-                <AnimationWrapper animationType='scale-in-center'>
+                <ScaleInAnimationWrapper>
                     <div className="w-[35vw] lg:w-[23vw] h-auto py-2 lg:py-0 lg:h-24 border lg:border-0 bg-white lg:bg-gray-100 rounded-lg lg:rounded-3xl shadow flex flex-col lg:flex-row items-center group hover:-translate-y-1 duration-500 hover:shadow-lg z-0">
                         <img src={`./images/activities/${popupContentId}/${popupContentId}_icon.webp`} className='lg:ml-12 w-10 h-10' alt='読み込み失敗'></img>
                         <div className='lg:ml-6 items-center'>
@@ -74,7 +75,7 @@ const ActivityPopup: React.FC<ActivityPopupProps> = ({ popupContentId, type }) =
                             <p className="hidden lg:block text-gray-400 text-sm">{content.pjName_Eng}</p>
                         </div>
                     </div>
-                </AnimationWrapper>
+                </ScaleInAnimationWrapper>
             )}
             {showPopup && (
                 <div className="fixed z-50 top-24 left-1/2 transform -translate-x-1/2 w-[90vw] lg:w-[80vw] h-[80vh] bg-white shadow-lg border border-gray-200 transition-transform duration-1000 ease-out scale-95 hover:scale-100 flex flex-col lg:flex-row">

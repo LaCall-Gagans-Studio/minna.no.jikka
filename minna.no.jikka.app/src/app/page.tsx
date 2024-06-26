@@ -1,7 +1,8 @@
 "use client";
 //Library
 import React, { Suspense, lazy, useEffect, useState } from 'react';
-import AnimationWrapper from "./components/animationWrapper";
+import FadeUpAnimationWrapper from "./components/fadeUpAnimationWrapper";
+import ScaleInAnimationWrapper from "./components/ScaleInAnimationWrapper";
 import { Link, Element } from 'react-scroll';
 import { BrowserRouter, Routes, Route, Link as RouterLink} from 'react-router-dom';
 //components
@@ -78,37 +79,39 @@ const Home = () => {
 
       {/* Calendar section */}
       <div className="w-full">
+        <ScaleInAnimationWrapper>
         <h1 className="mt-12 text-center text-black text-3xl font-medium leading-loose">みんなのカレンダー</h1>
         <p className="mb-12 text-center text-slate-500 text-xm font-medium leading-loose">下のイベントを押すことでそれぞれのイベントが確認できます</p>
-        <Calender />
+          <Calender />
+        </ScaleInAnimationWrapper>
       </div>
 
       {/* News section */}
       <div className="bg-zinc-200 w-full py-8">
-        <AnimationWrapper animationType="fade-up">
+        <FadeUpAnimationWrapper>
           <Element name="news" />
           <h1 className="text-center text-black text-3xl font-medium leading-10">NEWS</h1>
           <p className="mb-4 lg:mb-0 text-center text-black text-normal font-light leading-normal">最近のお知らせ</p>
           <InstagramPosts />
-        </AnimationWrapper>
+        </FadeUpAnimationWrapper>
       </div>
       
       {/* About section */}
       <div className="About bg-white w-full">
         <div className="About-Brief w-5/6 lg:w-1/2 mx-auto flex flex-col items-center">
           <Element name="about" />
-          <AnimationWrapper animationType='fade-up'>
+          <FadeUpAnimationWrapper>
             <img src="./images/index_about_1.webp" className="w-full " alt="再読み込みしてください" />
-          </AnimationWrapper>
-          <AnimationWrapper animationType='fade-up'>
+          </FadeUpAnimationWrapper>
+          <FadeUpAnimationWrapper>
           <p className="text-center text-black text-base lg:text-normal font-bold leading-normal">『ともに笑う。ともに学ぶ。ともに生きる。』</p>
           <p className="text-center text-black text-sm lg:text-normal font-normal leading-normal"><br/><br/>【一般社団法人みんなの実家】は、<br className="block lg:hidden"/>地域を支え合う、<br className="block lg:hidden"/>人生を支え合う、<br className="block lg:hidden"/>一人一人を大切にし合う。<br className="block lg:hidden"/>そんな地域に密着した<br className="block lg:hidden"/>”第三の居場所”として運営されている<br className="block lg:hidden"/>総合型サードプレイス拠点です。<br/><br/>地域食堂やフリースクール、<br className="block lg:hidden"/>施設の貸し出しやイベントを展開しております。<br/>赤ちゃんから高齢者まで<br className="block lg:hidden"/>”だれでも気軽に”立ち寄ることができます。<br/><br/>さまざまな年齢層や背景を持つ方々と<br className="block lg:hidden"/>一期一会のつながりを楽しみながら、<br/>川べりの古民家で<br className="block lg:hidden"/>ゆったりとした時間を共に過ごしましょう。</p>
-          </AnimationWrapper>
-          <AnimationWrapper animationType='fade-up'>
+          </FadeUpAnimationWrapper>
+          <FadeUpAnimationWrapper>
             <Link to="access" smooth={true} duration={500}>
               <LinkButton href="" text="試しに行ってみる" />
             </Link>
-          </AnimationWrapper>
+          </FadeUpAnimationWrapper>
           <Link to="activities" smooth={true} duration={500}>
             <LinkButton href="" text="もっと詳しく" />
           </Link>
@@ -138,7 +141,7 @@ const Home = () => {
 
       {/* Support section */}
       <div className="Support w-full flex justify-center bg-zinc-100 pb-10">
-        <AnimationWrapper animationType='fade-up'>
+        <FadeUpAnimationWrapper>
           <div className="flex flex-col lg:flex-row items-center lg:items-start">
             <div className="w-1/2 lg:w-1/4 lg:ml-28 mt-8 flex flex-col items-center">
               <img src="./images/index_supporter_logo.webp" className="w-full h-auto" />
@@ -151,18 +154,18 @@ const Home = () => {
               <p className="mx-3 lg:mx-0 text-black text-xs lg:text-sm font-light leading-normal">みんなの実家では、私たちの取り組みを応援してくださる方々を求めています。<br/>私たちの活動は、皆様のご支援によって成り立っております。<br/><br/>【サポートの選択肢】<br/>ご予算に合わせて、ご支援の頻度や金額を選べます。<br/>一度きりのご寄付、または毎月の定期的なご支援を選択できます。<br/>ご支援していただく金額は自由に設定可能です<br/>　（500 / 1000 / 5000円等。みなさまの負担にならない範囲でのご支援をお待ちしています）<br/><br/>【資金の活用例】<br/>トイレのバリアフリー改修・地域食堂台所の改修・フリースクール活動費・物品購入・etc<br/><br/>ご支援は、みんなの実家に関わる全ての人が心地よく過ごせるために利用させていただきます。<br/>みんなの実家は、みなさまの心温まるサポートに感謝しています。ありがとうございますm(__)m</p>
             </div>
           </div>
-          </AnimationWrapper>
+          </FadeUpAnimationWrapper>
       </div>
 
       {/* Relation section */}
       <div className="Relation w-full flex flex-col items-center justify-center bg-white">
-        <AnimationWrapper animationType='fade-up'>
+        <FadeUpAnimationWrapper>
           <Element name="profile" />
           <ChairmanInfo />
-        </AnimationWrapper>
-        <AnimationWrapper animationType='fade-up' additionalClass='w-full'>
+        </FadeUpAnimationWrapper>
+        <FadeUpAnimationWrapper additionalClass='w-full'>
           <OrgInfo />
-          </AnimationWrapper>
+          </FadeUpAnimationWrapper>
       </div>
 
       {/* Contact section */}
