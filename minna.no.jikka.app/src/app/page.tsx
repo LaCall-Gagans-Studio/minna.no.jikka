@@ -2,7 +2,7 @@
 //Library
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import FadeUpAnimationWrapper from "./components/fadeUpAnimationWrapper";
-import ScaleInAnimationWrapper from "./components/ScaleInAnimationWrapper";
+import ScaleInAnimationWrapper from "./components/scaleInAnimationWrapper";
 import { Link, Element } from 'react-scroll';
 import { BrowserRouter, Routes, Route, Link as RouterLink} from 'react-router-dom';
 //components
