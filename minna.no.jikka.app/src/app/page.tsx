@@ -69,10 +69,10 @@ const Home = () => {
       <div className='relative'>
         <div className='absolute w-full lg:w-auto flex flex-row items-center justify-center top-[-3rem] gap-10 bg-white py-6 px-8 rounded-lg'>
           <a href='https://www.instagram.com/minna_no_jikka2022/' className='hover:-translate-y-1 duration-500'>
-            <img  src="./sns/index-sns-instagram.webp" className="w-40 object-contain" alt="再読み込みしてください" />
+            <img  src="./images/sns/index-sns-instagram.webp" className="w-40 object-contain" alt="再読み込みしてください" />
           </a>
           <a href='https://lin.ee/J5nurNO' className='hover:-translate-y-1 duration-500'>
-            <img src="./sns/index-sns-line.webp" className="w-40 object-contain" alt="再読み込みしてください" />
+            <img src="./images/sns/index-sns-line.webp" className="w-40 object-contain" alt="再読み込みしてください" />
           </a>
         </div>
       </div>
