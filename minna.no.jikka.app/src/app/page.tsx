@@ -39,8 +39,6 @@ export default function Index() {
     return null;
   }
 
-  
-
   return (
     <main>
       <BrowserRouter>
