@@ -1,4 +1,4 @@
-import React, { useEffect, useState, lazy } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -7,11 +7,13 @@ import { db } from '../firebaseConfig';
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
 import CalendarPopup from './calendarPopup'
 
-const Calendar = () => {
+const Calendar = ({ }) => {
+
+  const calendarRef = useRef<FullCalendar>(null);//calendar API
   const [events, setEvents] = useState<any>([]);//Database用のイベントハンドラ
   const [showPopup, setShowPopup] = useState(false);//Popup用のハンドラ
   const [selectedEvent, setSelectedEvent] = useState<any>(null);//Popup用のハンドラ
-  const [isLargeScreen, setIsLargeScreen] = useState(false);//画面の大きさ
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>();//画面の大きさ
 
   // 画面サイズを監視し、状態を更新する
   useEffect(() => {
@@ -26,6 +28,11 @@ const Calendar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // 再レンダリング時にビューを設定する
+  useEffect(() => {
+    changeView(isLargeScreen ? 'timeGridWeek' : 'timeGridThreeDay');
+  }, [isLargeScreen]);
 
   //Google Firestore処理
   useEffect(() => {
@@ -53,6 +60,14 @@ const Calendar = () => {
     fetchData();
   }, []);
 
+  // ビューを変更する関数
+  const changeView = (viewName: string ) => {
+    const calendarApi = calendarRef.current?.getApi();
+    if (calendarApi) {
+      calendarApi.changeView(viewName);
+    }
+  };
+
   //Popup起動処理
   const handleEventClick = async (clickInfo: any) => {
     const docRef = doc(db, 'events', clickInfo.event.extendedProps.id); // ドキュメントIDを正しく指定
@@ -76,13 +91,20 @@ const Calendar = () => {
     <div className='w-full h-full'>
       <div className='w-5/6 m-auto mb-4 text-black'>
         <FullCalendar
+          ref={calendarRef}
           timeZone={'local'}
           plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
-          initialView = {isLargeScreen ? 'timeGridWeek' : 'listMonth'}
+          initialView = 'timeGridThreeDay'//{isLargeScreenInitial ? 'timeGridWeek' : 'listMonth'}
           headerToolbar={{
             left: 'title',
             center: 'prev,today,next',
-            right: isLargeScreen ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : 'dayGridMonth,timeGridDay,listMonth',
+            right: isLargeScreen ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : 'dayGridMonth,timeGridThreeDay,timeGridDay,listMonth,',
+          }}
+          views={{
+            timeGridThreeDay: {
+              type: 'timeGrid',
+              duration: { days: 3 }
+            }
           }}
           stickyHeaderDates={true}
           slotDuration={'00:30:00'}
@@ -93,7 +115,7 @@ const Calendar = () => {
           nowIndicator={true}
           locale={'ja'}
           contentHeight={'auto'}
-          buttonText={{ today: '今日', month: '月表示', week: '週表示', day: '日表示', list: 'リスト' }}
+          buttonText={{ today: '今日', month: '月表示', week: '週表示', day: '日表示', list: 'リスト', timeGridThreeDay:'3日間' }}
           events={events} // ステートからイベントデータを読み込み
           allDaySlot={false}
           eventClick={handleEventClick}
