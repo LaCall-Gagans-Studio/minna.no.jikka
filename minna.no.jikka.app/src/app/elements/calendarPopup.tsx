@@ -16,18 +16,18 @@ const CalendarPopup: React.FC<CalendarPopupProps> = ({ selectedEvent, onClose })
                     
                     {/* 団体 */}
                     <div className='mb-4 flex'>
-                        <div className='rounded-lg border py-2 flex bg-orange-300 items-center'>
-                        <FaHouseUser size={24} className='text-white ml-2'/>
-                        <p className='ml-2 text-white pr-1'>主催団体</p>
+                        <div className='text-nowrap rounded-lg border py-2 flex bg-orange-300 items-center'>
+                            <FaHouseUser size={24} className='text-white ml-2'/>
+                            <p className='text-sm lg:text-base ml-2 text-white pr-1'>主催団体</p>
                         </div>
                         <p className='py-2 ml-2'>{formatType(selectedEvent.type)}</p>
                     </div>
 
                     {/* 日程 */}
                     <div className='mb-4 flex'>
-                        <div className='rounded-lg border py-2 flex bg-orange-300'>
-                        <FaRegCalendarAlt size={24} className='text-white ml-2'/>
-                        <p className='ml-2 text-white pr-1'>日　程　</p>
+                        <div className='text-nowrap rounded-lg border py-2 flex bg-orange-300'>
+                            <FaRegCalendarAlt size={24} className='text-white ml-2'/>
+                            <p className='text-sm lg:text-base ml-2 text-white pr-1'>日　程　</p>
                         </div>
                         <p className='py-2 ml-2'>{formatDate(new Date(selectedEvent.start))}</p>
                         <p className='py-2 mx-4'>～</p>
@@ -36,25 +36,25 @@ const CalendarPopup: React.FC<CalendarPopupProps> = ({ selectedEvent, onClose })
 
                     {/* 予約形態 */}
                     <div className='flex mb-4'>
-                        <div className='rounded-lg border py-2 flex bg-orange-300 items-center'>
-                        <FaTasks size={24} className='text-white ml-2'/>
-                        <p className='ml-2 text-white pr-1'>予約形態</p>
+                        <div className='text-nowrap rounded-lg border py-2 flex bg-orange-300 items-center'>
+                            <FaTasks size={24} className='text-white ml-2'/>
+                            <p className='text-sm lg:text-base ml-2 text-white pr-1'>予約形態</p>
                         </div>
                         <p className='py-2 ml-2'>{formatRel(selectedEvent.rel)}</p>
                     </div>
                     
                     {/* 詳細 */}
                     <div className='flex mb-4'>
-                        <div className='rounded-lg border py-2 flex bg-orange-300 items-center h-10'>
-                        <FaShapes size={24} className='text-white ml-2'/>
-                        <p className='ml-2 text-white pr-1'>詳　細　</p>
+                        <div className='text-nowrap rounded-lg border py-2 flex bg-orange-300 items-center h-10'>
+                            <FaShapes size={24} className='text-white ml-2'/>
+                            <p className='text-sm lg:text-base ml-2 text-white pr-1'>詳　細　</p>
                         </div>
                         <p className='py-2 ml-2'>{selectedEvent.body}</p>
                     </div>
                 </div>
-                    <button onClick={onClose} className='absolute top-10 right-10'>
+                <button onClick={onClose} className='absolute top-10 right-10'>
                     <FaTimes size={30} className='text-orange-300 hover:size-8 duration-200' />
-                    </button>
+                </button>
             </div>
             <div className='fixed top-0 left-0 bg-black backdrop-blur-3xl opacity-30 h-[100vh] w-[100%] z-40'></div>{/* 黒背景 */}
         </>
