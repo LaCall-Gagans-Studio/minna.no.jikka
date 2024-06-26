@@ -5,7 +5,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import { db } from '../firebaseConfig';
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
-import CalendarPopup from './calendarPopup'
+import CalendarPopup from './calendarPopup';
+import './calendar.css';
 
 const Calendar = ({ }) => {
 
@@ -94,11 +95,11 @@ const Calendar = ({ }) => {
           ref={calendarRef}
           timeZone={'local'}
           plugins={[dayGridPlugin, timeGridPlugin, listPlugin]}
-          initialView = 'timeGridThreeDay'//{isLargeScreenInitial ? 'timeGridWeek' : 'listMonth'}
+          initialView = 'timeGridThreeDay'
           headerToolbar={{
             left: 'title',
             center: 'prev,today,next',
-            right: isLargeScreen ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : 'dayGridMonth,timeGridThreeDay,timeGridDay,listMonth,',
+            right: isLargeScreen ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : 'timeGridThreeDay,listMonth,',
           }}
           views={{
             timeGridThreeDay: {
