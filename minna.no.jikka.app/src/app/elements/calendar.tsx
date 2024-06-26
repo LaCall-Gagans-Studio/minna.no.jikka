@@ -99,7 +99,7 @@ const Calendar = ({ }) => {
           headerToolbar={{
             left: 'title',
             center: 'prev,today,next',
-            right: isLargeScreen ? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' : 'timeGridThreeDay,listMonth,',
+            right: isLargeScreen ? 'dayGridMonth,timeGridWeek,listMonth' : 'timeGridThreeDay,listMonth,',
           }}
           views={{
             timeGridThreeDay: {

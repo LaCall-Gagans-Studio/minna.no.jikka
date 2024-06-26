@@ -9,23 +9,34 @@
     font-size: 0.7rem;
     color: #37362f;
 }
-/* ツールバーのボタン */
+/* ツールバーのボタン（共通） */
 .fc .fc-button-primary {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     background-color: white;
     color: #acaba9;
     border: none;
     outline: none;
 }
-/* ツールバー今日ボタン（今日を含まない場合） */
+
+@media screen and (max-width: 1024px) {
+    .fc .fc-button-primary {
+        font-size: 0.70rem;
+        background-color: white;
+        color: #acaba9;
+        border: none;
+        outline: none;
+    }
+}
+
+/* ツールバー当日ボタン（当日を含まない場合） */
 .fc .fc-today-button {
-    background-color:#acaba9;
+    background-color:#ede7e6;
     color: #37362f;
     border: none;
     outline: none;
 }
 
-/* ツールバー今日ボタン（今日を含む場合） */
+/* ツールバー当日ボタン（当日を含む場合） */
 .fc .fc-today-button:disabled {
     opacity: 1;
     background-color: #fdba74;
@@ -49,4 +60,34 @@
     background-color: #fdba74;
     color: #acaba9;
     box-shadow: none;
+}
+
+/* 土日の欄 */
+.fc .fc-day-sat,
+.fc .fc-day-sun {
+    background-color: #ede7e6;
+}
+
+/* 枠 */
+.fc .fc-scrollgrid {
+    border-width: 0 0 0 0; 
+}
+
+/* それぞれの日付の枠 */
+.fc .fc-col-header-cell {
+    font-size: 0.75rem;
+    color: rgb(100 116 139);
+    border: none;
+}
+
+.fc .fc-scrollgrid {
+    border-width: 0;
+}
+
+.fc .fc-scrollgrid-section > * {
+    border: none;
+}
+
+.fc .fc-scrollgrid-sync-table {
+    border: 1px;
 }
