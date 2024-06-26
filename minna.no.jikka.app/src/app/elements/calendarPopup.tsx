@@ -51,12 +51,12 @@ const CalendarPopup: React.FC<CalendarPopupProps> = ({ selectedEvent, onClose })
                         </div>
                         <p className='py-2 ml-2'>{selectedEvent.body}</p>
                     </div>
-                    </div>
+                </div>
                     <button onClick={onClose} className='absolute top-10 right-10'>
                     <FaTimes size={30} className='text-orange-300 hover:size-8 duration-200' />
                     </button>
-                </div>
-            <div className='fixed top-0 left-0 bg-black backdrop-blur-3xl opacity-30 h-[100vh] w-[100vw] z-40'></div>{/* 黒背景 */}
+            </div>
+            <div className='fixed top-0 left-0 bg-black backdrop-blur-3xl opacity-30 h-[100vh] w-[100%] z-40'></div>{/* 黒背景 */}
         </>
     );
 };
