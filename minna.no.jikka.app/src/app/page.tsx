@@ -40,12 +40,12 @@ export default function Index() {
     return null;
   }
 
-  useEffect(() => {
-    // Google Analytics 測定 ID を入力して設定
-    ReactGA.initialize('G-GMLVT79WNJ');
-    // ページビューイベントを処理
-    ReactGA.send('pageview');
-  }, []);
+  // useEffect(() => {
+  //   // Google Analytics 測定 ID を入力して設定
+  //   ReactGA.initialize('G-GMLVT79WNJ');
+  //   // ページビューイベントを処理
+  //   ReactGA.send('pageview');
+  // }, []);
 
   return (
     <main>
