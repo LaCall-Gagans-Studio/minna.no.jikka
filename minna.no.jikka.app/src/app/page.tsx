@@ -1,11 +1,12 @@
 "use client";
 //Library
 import React, { Suspense, lazy, useEffect, useState } from 'react';
-import FadeUpAnimationWrapper from "./components/fadeUpAnimationWrapper";
-import ScaleInAnimationWrapper from "./components/scaleInAnimationWrapper";
 import { Link, Element } from 'react-scroll';
 import { BrowserRouter, Routes, Route, Link as RouterLink} from 'react-router-dom';
+import ReactGA from "react-ga4";
 //components
+import FadeUpAnimationWrapper from "./components/fadeUpAnimationWrapper";
+import ScaleInAnimationWrapper from "./components/scaleInAnimationWrapper";
 import Header from "./components/header";
 import LinkButton from "./components/linkButton";
 const Footer = lazy(() => import('./components/footer'));
@@ -38,6 +39,13 @@ export default function Index() {
   if (!isClient) {
     return null;
   }
+
+  useEffect(() => {
+    // Google Analytics 測定 ID を入力して設定
+    ReactGA.initialize('G-GMLVT79WNJ');
+    // ページビューイベントを処理
+    ReactGA.send('pageview');
+  }, []);
 
   return (
     <main>
