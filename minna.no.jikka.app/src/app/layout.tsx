@@ -1,13 +1,9 @@
+import React, { useEffect } from 'react';
 import type { Metadata as NextMetadata } from 'next';
 import { Zen_Maru_Gothic } from 'next/font/google';
 import Head from 'next/head'; // 追加
 import './globals.css';
 import ReactGA from "react-ga4";
-
-// Google Analytics 測定 ID を入力して設定
-ReactGA.initialize("G-GMLVT79WNJ");
-// ページビューイベントを処理
-ReactGA.send("pageview");
 
 interface Metadata extends NextMetadata {
   others: {
@@ -47,6 +43,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    // Google Analytics 測定 ID を入力して設定
+    ReactGA.initialize('G-GMLVT79WNJ');
+    // ページビューイベントを処理
+    ReactGA.send('pageview');
+  }, []);
+
   return (
     <html lang='ja'>
       <Head>
