@@ -19,6 +19,7 @@
     "postcss-preset-env": "^9.5.14",
     "react": "^18",
     "react-dom": "^18",
+    "react-ga4": "^2.1.0",
     "react-hook-form": "^7.51.0",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.8.2",
