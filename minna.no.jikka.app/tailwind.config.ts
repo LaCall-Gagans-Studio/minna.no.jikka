@@ -6,6 +6,9 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx}', // ここにプロジェクトのファイルパスを追加
   ],
   theme: {
+    screens: {
+      'lg': '1165px',
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

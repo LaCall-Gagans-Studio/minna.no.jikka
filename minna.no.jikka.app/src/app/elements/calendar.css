@@ -19,6 +19,12 @@
 }
 
 @media screen and (max-width: 1024px) {
+    /* ツールバーの日付 */
+    .fc .fc-toolbar-title {
+        font-size: 0.6rem;
+        color: #37362f;
+    }
+
     .fc .fc-button-primary {
         font-size: 0.70rem;
         background-color: white;
