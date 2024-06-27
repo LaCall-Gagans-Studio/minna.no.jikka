@@ -147,7 +147,7 @@ const RevAdmin = () => {
                         ...doc.data(),
                         id: doc.id,
                         type, // コレクションタイプを設定
-                        notes: type === 'participantsH' ? 'スタッフ' : (doc.data().notes || '') // participantsHの場合は「スタッフ」と表示
+                        notes: type === 'participantsH' ? 'ほとりコード' : (doc.data().notes || '') // participantsHの場合は「スタッフ」と表示
                     }));
                 })
             );
