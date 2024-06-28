@@ -12,7 +12,7 @@ const CalendarPopup: React.FC<CalendarPopupProps> = ({ selectedEvent, onClose })
             <div className='fixed top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 w-[90vw] lg:w-[50vw] h-[50vh] lg:h-auto py-12 lg:p-12 bg-white shadow-lg border border-gray-200 z-50'>
                 <div className='w-full h-11/12 overflow-y-scroll pl-4'>
                     {/* タイトル */}
-                    <h1 className='text-3xl font-thin mb-4'>{selectedEvent.title}</h1>
+                    <h1 className='text-3xl font-thin mb-4 text-wrap w-4/5'>{selectedEvent.title}</h1>
                     
                     {/* 団体 */}
                     <div className='mb-4 flex'>
@@ -74,7 +74,7 @@ const formatType = (type: any) => {
         case '2':
             return 'フリースクールほとり';
         case '3':
-            return '公式ひろばイベント';
+            return '公式イベント';
         default:
             return (
             <>
