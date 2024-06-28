@@ -13,7 +13,7 @@ const EventRegisterForm = ({ event, setEvent, onSubmit, onClose, isEditing }: { 
             case '0':
                 return 'hostOption5';
             default:
-                return 'hostOption4';
+                return type;
         }
     };
 
@@ -40,7 +40,7 @@ const EventRegisterForm = ({ event, setEvent, onSubmit, onClose, isEditing }: { 
         } else if (host === 'hostOption5') {
             setEvent({ ...event, rev: { ...(event.rev || {}), isRev: false }, type: '0' });
         } else {
-            setEvent({ ...event, rev: { ...(event.rev || {}), isRev: false }, type: '4' });
+            setEvent({ ...event, rev: { ...(event.rev || {}), isRev: false }, type: host });
         }
     }, [host, setEvent]);
 
